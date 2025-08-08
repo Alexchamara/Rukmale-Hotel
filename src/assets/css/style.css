@@ -1,0 +1,16 @@
+/* CSS Reset (e.g. normalize.css) */
+/* ...import or reset rules here... */
+
+/* Base Styles */
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Utility/variables */
+/* e.g. :root { --primary-color: #005f73; } */
+
+/* BEM helpers, grid/flex utilities */
+/* ...existing code... */

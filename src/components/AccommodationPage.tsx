@@ -1,0 +1,388 @@
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import Navigation from './shared/Navigation';
+import Footer from './shared/Footer';
+import FeelInspired from './shared/FeelInspired';
+import svgPaths from "../imports/svg-edsdfkxck7";
+
+// Dummy image placeholders
+const imgMain = "/images/cup3.JPG";
+const imgDsc050121 = "/images/family4.JPG";
+const imgDsc50122 = "/images/cup4.JPG";
+const imgDsc50123 = "/images/full3.JPG";
+
+function HeroSection({ onNavigate, currentPage }: { onNavigate: (page: string, section?: string) => void, currentPage: string }) {
+  const ref = useRef(null);
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 500], [0, 150]);
+
+  return (
+    <div ref={ref} className="relative h-[500px] w-full shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] overflow-hidden">
+      <motion.div
+        className="absolute inset-0 bg-[0%_16.18%] bg-no-repeat"
+        style={{ 
+          backgroundImage: `url('${imgMain}')`,
+          backgroundSize: '100% 170.8%',
+          y
+        }}
+      />
+      
+      <Navigation onNavigate={onNavigate} currentPage={currentPage} />
+      
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="text-center text-white">
+          <motion.div 
+            className="font-['Baskervville_SC'] text-[28px] lg:text-[40px] tracking-[6px] [text-shadow:rgba(0,0,0,0.5)_0px_4px_2px]"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
+          >
+            Rooms & Rules
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function BookingForm({ onNavigate }: { onNavigate: (page: string, section?: string) => void }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <motion.div 
+      ref={ref}
+      className="relative z-20 mx-4 lg:mx-auto max-w-6xl px-4 -mt-12"
+      initial={{ y: 100, opacity: 0 }}
+      animate={isInView ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      <motion.div 
+        className="bg-white rounded-[50px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] p-6 lg:p-8"
+        whileHover={{ 
+          boxShadow: "0px 8px 25px rgba(0,0,0,0.15)",
+          y: -5
+        }}
+        transition={{ duration: 0.3 }}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
+          <motion.div 
+            className="flex items-center space-x-3"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="size-4">
+              <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 15 17">
+                <path d={svgPaths.p2b81e400} fill="black" />
+              </svg>
+            </div>
+            <div>
+              <div className="font-['Cormorant:SemiBold',_sans-serif] font-semibold text-black text-[20px]">
+                Check In
+              </div>
+              <div className="font-['Outfit:Regular',_sans-serif] text-black text-[12px]">
+                2025-03-16
+              </div>
+            </div>
+          </motion.div>
+          
+          <motion.div 
+            className="flex items-center space-x-3"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="size-4">
+              <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 15 17">
+                <path d={svgPaths.p2b81e400} fill="black" />
+              </svg>
+            </div>
+            <div>
+              <div className="font-['Cormorant:SemiBold',_sans-serif] font-semibold text-black text-[20px]">
+                Check Out
+              </div>
+              <div className="font-['Outfit:Regular',_sans-serif] text-black text-[12px]">
+                2025-03-20
+              </div>
+            </div>
+          </motion.div>
+          
+          <motion.div 
+            className="flex items-center space-x-3"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="size-[25px]">
+              <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 25 25">
+                <path d={svgPaths.p3147b80} fill="black" />
+              </svg>
+            </div>
+            <div>
+              <div className="font-['Cormorant:SemiBold',_sans-serif] font-semibold text-black text-[20px]">
+                Guest
+              </div>
+              <div className="font-['Outfit:Regular',_sans-serif] text-black text-[12px]">
+                4 Guests
+              </div>
+            </div>
+          </motion.div>
+          
+          <div>
+            <motion.button 
+              className="bg-black/25 h-[53px] rounded-[50px] px-6 w-full"
+              whileHover={{ 
+                scale: 1.05,
+                backgroundColor: "rgba(0,0,0,0.35)",
+                boxShadow: "0px 4px 15px rgba(0,0,0,0.2)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => onNavigate('booking')}
+            >
+              <div className="font-['Cormorant:Bold',_sans-serif] font-bold text-black text-[20px]">
+                Check Availability
+              </div>
+            </motion.button>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+function RoomCard({ image, title, description, rooms, beds, bathrooms, amenities, price, sleeps, roomType, index, onNavigate }: {
+  image: string;
+  title: string;
+  description: string;
+  rooms: string;
+  beds?: string;
+  bathrooms: string;
+  amenities: string;
+  price: string;
+  sleeps: string;
+  roomType: string;
+  index: number;
+  onNavigate: (page: string, section?: string) => void;
+}) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const handleBookingClick = () => {
+    onNavigate('booking');
+  };
+
+  return (
+    <motion.div 
+      ref={ref}
+      className="bg-white rounded-[25px] shadow-[0px_10px_25px_2px_rgba(0,0,0,0.25)] overflow-hidden"
+      initial={{ opacity: 0, y: 50, scale: 0.9 }}
+      animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.9 }}
+      transition={{ duration: 0.6, delay: index * 0.2 }}
+      whileHover={{ 
+        y: -10,
+        boxShadow: "0px 20px 40px rgba(0,0,0,0.15)"
+      }}
+    >
+      <motion.div 
+        className="h-[291px] bg-center bg-cover bg-no-repeat rounded-[25px] shadow-[0px_4px_25px_0px_rgba(0,0,0,0.25)] m-7"
+        style={{ backgroundImage: `url('${image}')` }}
+        whileHover={{ scale: 1.02 }}
+        transition={{ duration: 0.3 }}
+      />
+      
+      <div className="p-6">
+        <div className="text-center mb-4">
+          <div className="font-['Outfit:SemiBold',_sans-serif] font-semibold text-black text-[24px] tracking-[0.96px] mb-4">
+            {title}
+          </div>
+          <div className="font-['Outfit:Regular',_sans-serif] text-black text-[20px] mb-6">
+            {description}
+          </div>
+        </div>
+        
+        <div className="space-y-2 mb-6 text-[16px] tracking-[0.64px]">
+          <div className="flex justify-between">
+            <div className="font-['Outfit:Light',_sans-serif] font-light text-black">
+              • <span className="font-['Outfit:Bold',_sans-serif] font-bold">{rooms}</span> Room{beds && (
+                <span> (<span className="font-['Outfit:Bold',_sans-serif] font-bold">{beds}</span> dbl)</span>
+              )}
+            </div>
+            <div className="font-['Outfit:Light',_sans-serif] font-light text-black">
+              • <span className="font-['Outfit:Bold',_sans-serif] font-bold">{bathrooms}</span> Bathroom
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <div className="font-['Outfit:Light',_sans-serif] font-light text-black">
+              • {amenities}
+            </div>
+            <div className="font-['Outfit:Light',_sans-serif] font-light text-black">
+              • Sleeps up to <span className="font-['Outfit:Bold',_sans-serif] font-bold">{sleeps}</span>
+            </div>
+          </div>
+          <div className="font-['Outfit:Light',_sans-serif] font-light text-black">
+            • LKR <span className="font-['Outfit:Bold',_sans-serif] font-bold">{price}/</span>night
+          </div>
+        </div>
+        
+        <div className="text-center">
+          <motion.button 
+            className="bg-black/25 h-[33px] rounded-[10px] px-6 shadow-[0px_0px_10px_0px_#000000]"
+            whileHover={{ 
+              scale: 1.05,
+              backgroundColor: "rgba(0,0,0,0.35)",
+              boxShadow: "0px 4px 15px rgba(0,0,0,0.2)"
+            }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            onClick={handleBookingClick}
+          >
+            <div className="font-['Outfit:Bold',_sans-serif] font-bold text-black text-[14px] tracking-[0.56px]">
+              Book Now
+            </div>
+          </motion.button>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function RoomsSection({ onNavigate }: { onNavigate: (page: string, section?: string) => void }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <motion.div 
+      ref={ref}
+      className="py-16 lg:py-24 px-4 lg:px-16"
+      initial={{ opacity: 0 }}
+      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <motion.div 
+        className="text-center mb-16"
+        initial={{ opacity: 0, y: 50 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <div className="font-['Outfit:Regular',_sans-serif] text-black text-[16px] lg:text-[20px] max-w-5xl mx-auto mb-16">
+          Welcome to Rukmale Gedara Bungalow, your luxurious home away from home. Choose the accommodation that best suits your needs and enjoy a comfortable, relaxing stay.
+        </div>
+      </motion.div>
+      
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          <RoomCard 
+            image={imgDsc050121}
+            title="FAMILY WING"
+            description="Perfectly designed for families or small groups looking for comfort and convenience."
+            rooms="2"
+            beds="2"
+            bathrooms="1"
+            amenities="A/C, Iron, Wash"
+            price="18,000"
+            sleeps="5"
+            roomType="family"
+            index={0}
+            onNavigate={onNavigate}
+          />
+          
+          <RoomCard 
+            image={imgDsc50122}
+            title="COUPLE WING"
+            description="Intimate and cozy, ideal for couples seeking a peaceful getaway."
+            rooms="1"
+            beds="1"
+            bathrooms="1"
+            amenities="A/C, Iron, Wash"
+            price="12,000"
+            sleeps="2"
+            roomType="couple"
+            index={1}
+            onNavigate={onNavigate}
+          />
+        </div>
+        
+        <div className="flex justify-center">
+          <div className="w-full max-w-4xl">
+            <motion.div 
+              className="bg-white rounded-[25px] shadow-[0px_10px_25px_2px_rgba(0,0,0,0.25)] overflow-hidden"
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.9 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              whileHover={{ 
+                y: -10,
+                boxShadow: "0px 20px 40px rgba(0,0,0,0.15)"
+              }}
+            >
+              <motion.div 
+                className="h-[291px] bg-center bg-cover bg-no-repeat rounded-[25px] shadow-[0px_4px_25px_0px_rgba(0,0,0,0.25)] m-7"
+                style={{ backgroundImage: `url('${imgDsc50123}')` }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              />
+              
+              <div className="p-6">
+                <div className="text-center mb-4">
+                  <div className="font-['Outfit:SemiBold',_sans-serif] font-semibold text-black text-[24px] tracking-[0.96px] mb-4">
+                    FULL BUNGALOW
+                  </div>
+                  <div className="font-['Outfit:Regular',_sans-serif] text-black text-[20px] mb-6">
+                    Book the entire bungalow for ultimate privacy and freedom, perfect for larger groups or families.
+                  </div>
+                </div>
+                
+                <div className="space-y-2 mb-6 text-[16px] tracking-[0.64px]">
+                  <div className="font-['Outfit:Light',_sans-serif] font-light text-black">
+                    • Full access (all rooms + kitchen)
+                  </div>
+                  <div className="font-['Outfit:Light',_sans-serif] font-light text-black">
+                    • Full kitchen, A/C, ironing, washing machine
+                  </div>
+                  <div className="font-['Outfit:Light',_sans-serif] font-light text-black">
+                    • Sleeps up to 7
+                  </div>
+                  <div className="font-['Outfit:Light',_sans-serif] font-light text-black">
+                    • LKR <span className="font-['Outfit:Bold',_sans-serif] font-bold">35,000/</span>night
+                  </div>
+                </div>
+                
+                <div className="text-center">
+                  <motion.button 
+                    className="bg-black/25 h-[33px] rounded-[10px] px-6 shadow-[0px_0px_10px_0px_#000000]"
+                    whileHover={{ 
+                      scale: 1.05,
+                      backgroundColor: "rgba(0,0,0,0.35)",
+                      boxShadow: "0px 4px 15px rgba(0,0,0,0.2)"
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                    onClick={() => onNavigate('booking')}
+                  >
+                    <div className="font-['Outfit:Bold',_sans-serif] font-bold text-black text-[14px] tracking-[0.56px]">
+                      Book Now
+                    </div>
+                  </motion.button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+      
+      <div className="mt-16 max-w-7xl mx-auto">
+        <div className="h-px bg-black/10"></div>
+      </div>
+    </motion.div>
+  );
+}
+
+export default function AccommodationPage({ onNavigate, currentPage }: { onNavigate: (page: string, section?: string) => void, currentPage: string }) {
+  return (
+    <div className="min-h-screen bg-white">
+      <HeroSection onNavigate={onNavigate} currentPage={currentPage} />
+      <BookingForm onNavigate={onNavigate} />
+      <RoomsSection onNavigate={onNavigate} />
+      <FeelInspired />
+      <Footer onNavigate={onNavigate} />
+    </div>
+  );
+}
