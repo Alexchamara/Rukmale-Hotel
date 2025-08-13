@@ -5,6 +5,7 @@ import GalleryPage from "./components/GalleryPage";
 import AboutUsPage from "./components/AboutUsPage";
 import BookingPage from "./components/BookingPage";
 import Navigation from "./components/shared/Navigation";
+import WhatsAppButton from "./components/shared/WhatsAppButton";
 import Footer from "./components/shared/Footer";
 import FeelInspired from "./components/shared/FeelInspired";
 import svgPaths from "./imports/svg-4u3mehqz72";
@@ -1024,6 +1025,7 @@ export default function App() {
           />
         </div>
       )}
+      <WhatsAppButton />
     </>
   );
 }
