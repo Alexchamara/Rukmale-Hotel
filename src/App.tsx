@@ -696,7 +696,6 @@ function RoomCard({
   amenities,
   price,
   buttonText,
-  roomType,
   reverse = false,
   index = 0,
   onNavigate,
@@ -710,7 +709,6 @@ function RoomCard({
   amenities: string;
   price: string;
   buttonText: string;
-  roomType: string;
   reverse?: boolean;
   index?: number;
   onNavigate: (page: string, section?: string) => void;
@@ -872,7 +870,6 @@ function RoomsSection({
           amenities="A/C, Iron, Washing machine"
           price="LKR 12,000 / night"
           buttonText="BOOK YOUR ROOM"
-          roomType="couple"
           index={0}
           onNavigate={onNavigate}
         />
@@ -887,7 +884,6 @@ function RoomsSection({
           amenities="A/C, Iron, Washing machine"
           price="LKR 18,000 / night"
           buttonText="BOOK YOUR ROOM"
-          roomType="family"
           reverse={true}
           index={1}
           onNavigate={onNavigate}
@@ -903,7 +899,6 @@ function RoomsSection({
           amenities="Fully equipped kitchen, A/C, Ironing, Washing machine"
           price="LKR 35,000 / night"
           buttonText="BOOK YOUR BUNGALOW"
-          roomType="bungalow"
           index={2}
           onNavigate={onNavigate}
         />
@@ -999,6 +994,7 @@ export default function App() {
           <AccommodationPage
             onNavigate={handleNavigate}
             currentPage={currentPage}
+            onBookingData={handleBookingData}
           />
         </div>
       )}
@@ -1008,12 +1004,17 @@ export default function App() {
             onNavigate={handleNavigate}
             currentPage={currentPage}
             targetSection={targetSection}
+            onBookingData={handleBookingData}
           />
         </div>
       )}
       {currentPage === "about" && (
         <div>
-          <AboutUsPage onNavigate={handleNavigate} currentPage={currentPage} />
+          <AboutUsPage 
+            onNavigate={handleNavigate} 
+            currentPage={currentPage} 
+            onBookingData={handleBookingData}
+          />
         </div>
       )}
       {currentPage === "booking" && (

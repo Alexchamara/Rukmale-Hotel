@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { PlusCircle, HamburgerIcon, SocialIcon } from "./Icons";
+import { PlusCircle, HamburgerIcon } from "./Icons";
 import svgPaths from "../../imports/svg-4u3mehqz72";
 
 // Dummy image placeholder

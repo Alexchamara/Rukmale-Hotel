@@ -5,7 +5,7 @@ import Navigation from './shared/Navigation';
 import Footer from './shared/Footer';
 import FeelInspired from './shared/FeelInspired';
 import svgPaths from "../imports/svg-ziizrqf333";
-import imgDsc05036 from "/images/cup4.JPG";
+import imgDsc05036 from "../assets/cup4.jpg";
 
 function HeroSection({ onNavigate, currentPage }: { onNavigate: (page: string, section?: string) => void, currentPage: string }) {
   const ref = useRef(null);

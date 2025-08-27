@@ -115,7 +115,7 @@ export default function Footer({ onNavigate }: { onNavigate: (page: string, sect
                   { name: 'Home', key: 'home' },
                   { name: 'Accommodation', key: 'accommodation' },
                   { name: 'Booking', key: 'booking' }
-                ].map((item, index) => (
+                ].map((item) => (
                   <motion.div 
                     key={item.key}
                     className="font-['Outfit:Medium',_sans-serif] font-medium text-black text-[24px] lg:text-[28px] tracking-[1.12px] cursor-pointer"
@@ -136,7 +136,7 @@ export default function Footer({ onNavigate }: { onNavigate: (page: string, sect
                   { name: 'Photo Gallery', key: 'gallery' },
                   { name: 'About Us', key: 'about' },
                   { name: 'Contact Us', key: 'contact' }
-                ].map((item, index) => (
+                ].map((item) => (
                   <motion.div 
                     key={item.key}
                     className="font-['Outfit:Medium',_sans-serif] font-medium text-black text-[24px] lg:text-[28px] tracking-[1.12px] cursor-pointer"
