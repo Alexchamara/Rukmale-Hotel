@@ -17,15 +17,15 @@
     "declarationMap": true,
     "sourceMap": true,
     "outDir": "./dist",
-    "emitDeclarationOnly": true,
+    "emitDeclarationOnly": false,
 
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "allowJs": true
   },
   "include": ["vite.config.ts"]
 }
