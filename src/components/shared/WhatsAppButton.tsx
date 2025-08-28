@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 export default function WhatsAppButton() {
   const handleWhatsAppClick = () => {
-    const phoneNumber = "+94705782002";
+    const phoneNumber = "+94713456764";
     const message = encodeURIComponent("Hello! I'm interested in booking a stay at Rukmale Gedara Bungalow Resort.");
     const whatsappUrl = `https://wa.me/${phoneNumber.replace('+', '')}?text=${message}`;
     window.open(whatsappUrl, '_blank');

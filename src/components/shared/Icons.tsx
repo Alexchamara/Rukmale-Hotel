@@ -66,7 +66,7 @@ export function HamburgerIcon({ isOpen }: { isOpen: boolean }) {
 export function SocialIcon({ children }: { children: React.ReactNode }) {
   return (
     <motion.div 
-      className="size-[25px] cursor-pointer"
+      className="size-[20px] cursor-pointer"
       whileHover={{ 
         scale: 1.2,
         rotate: 5,
