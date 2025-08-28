@@ -843,7 +843,7 @@ function Group9() {
       </div>
       <div className="absolute font-['Outfit:Bold',_sans-serif] font-bold leading-[0] left-[52px] text-[#000000] text-[14px] text-left top-[316px] tracking-[0.56px] w-[178.6px]">
         <p className="adjustLetterSpacing block leading-[normal]">
-          Reserve your couple wing
+          Reserve your serenity wing
         </p>
       </div>
     </div>
@@ -863,7 +863,7 @@ function Infor1() {
       </div>
       <div className="absolute font-['Outfit:Medium',_sans-serif] font-medium leading-[0] left-[147px] text-[#000000] text-[20px] text-left text-nowrap top-0.5 tracking-[0.8px]">
         <p className="adjustLetterSpacing block leading-[normal] whitespace-pre">
-          (Couple Wing)
+          (Serenity Wing)
         </p>
       </div>
       <div className="absolute font-['Outfit:Regular',_sans-serif] font-normal leading-[0] left-0 text-[#6a6a6a] text-[16px] text-left top-[35px] w-[291px]">

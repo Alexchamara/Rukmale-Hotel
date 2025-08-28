@@ -351,7 +351,7 @@ function Info() {
     >
       <div className="absolute font-['Outfit:SemiBold',_sans-serif] font-semibold leading-[0] left-[152px] text-[#000000] text-[24px] text-left text-nowrap top-[184px] tracking-[0.96px]">
         <p className="adjustLetterSpacing block leading-[normal] whitespace-pre">
-          COUPLE WING
+          SERENITY WING
         </p>
       </div>
       <div className="absolute font-['Outfit:Light',_sans-serif] font-light leading-[normal] left-[152px] text-[#000000] text-[16px] text-left text-nowrap top-[214px] tracking-[0.64px] whitespace-pre">

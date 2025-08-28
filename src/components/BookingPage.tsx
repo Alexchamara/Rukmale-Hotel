@@ -258,7 +258,7 @@ function BookingFormSection({ bookingData }: {
                 className="w-[137px] h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_'Montserrat'] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
               >
                 <option value="standard">Standard</option>
-                <option value="couple">Couple Wing</option>
+                <option value="couple">Serenity Wing</option>
                 <option value="family">Family Wing</option>
                 <option value="bungalow">Full Bungalow</option>
               </select>

@@ -6,8 +6,16 @@ import FeelInspired from "./shared/FeelInspired";
 import { format } from "date-fns";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Calendar } from "./ui/calendar";
-import { ChevronUp, ChevronDown } from "lucide-react";
-import { CalendarIcon } from "lucide-react";
+import { 
+  ChevronUp, 
+  ChevronDown, 
+  CalendarIcon,
+  Bath,
+  Wind,
+  Users,
+  HomeIcon,
+  Star
+} from "lucide-react";
 import svgPaths from "../imports/svg-edsdfkxck7";
 
 // Dummy image placeholders
@@ -340,50 +348,89 @@ function RoomCard({
           </div>
         </div>
 
-        <div className="space-y-2 mb-6 text-[16px] tracking-[0.64px]">
-          <div className="flex justify-between">
-            <div className="font-['Outfit:Light',_'Montserrat'] font-light text-black">
-              •{" "}
-              <span className="font-['Outfit:Bold',_'Montserrat'] font-bold">
-                {rooms}
-              </span>{" "}
-              Room
-              {beds && (
-                <span>
-                  {" "}
-                  (
-                  <span className="font-['Outfit:Bold',_'Montserrat'] font-bold">
-                    {beds}
-                  </span>{" "}
-                  dbl)
-                </span>
-              )}
-            </div>
-            <div className="font-['Outfit:Light',_'Montserrat'] font-light text-black">
-              •{" "}
-              <span className="font-['Outfit:Bold',_'Montserrat'] font-bold">
-                {bathrooms}
-              </span>{" "}
-              Bathroom
-            </div>
-          </div>
-          <div className="flex justify-between">
-            <div className="font-['Outfit:Light',_'Montserrat'] font-light text-black">
-              • {amenities}
-            </div>
-            <div className="font-['Outfit:Light',_'Montserrat'] font-light text-black">
-              • Sleeps up to{" "}
-              <span className="font-['Outfit:Bold',_'Montserrat'] font-bold">
-                {sleeps}
+        <div className="mb-6 text-[16px] tracking-[0.64px]">
+          <div className="grid grid-cols-2 gap-3">
+            <motion.div 
+              className="font-['Outfit:Light',_'Montserrat'] font-light text-black flex items-center"
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="bg-black/5 rounded-full p-1.5 mr-3">
+                <HomeIcon size={16} className="text-black/70" />
+              </div>
+              <span>
+                <span className="font-['Outfit:Bold',_'Montserrat'] font-bold">
+                  {rooms}
+                </span>{" "}
+                Room
+                {beds && (
+                  <span>
+                    {" "}
+                    (
+                    <span className="font-['Outfit:Bold',_'Montserrat'] font-bold">
+                      {beds}
+                    </span>{" "}
+                    dbl)
+                  </span>
+                )}
               </span>
-            </div>
-          </div>
-          <div className="font-['Outfit:Light',_'Montserrat'] font-light text-black">
-            • LKR{" "}
-            <span className="font-['Outfit:Bold',_'Montserrat'] font-bold">
-              {price}/
-            </span>
-            night
+            </motion.div>
+            <motion.div 
+              className="font-['Outfit:Light',_'Montserrat'] font-light text-black flex items-center"
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="bg-black/5 rounded-full p-1.5 mr-3">
+                <Bath size={16} className="text-black/70" />
+              </div>
+              <span>
+                <span className="font-['Outfit:Bold',_'Montserrat'] font-bold">
+                  {bathrooms}
+                </span>{" "}
+                Washroom
+              </span>
+            </motion.div>
+            <motion.div 
+              className="font-['Outfit:Light',_'Montserrat'] font-light text-black flex items-center"
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="bg-black/5 rounded-full p-1.5 mr-3">
+                <Wind size={16} className="text-black/70" />
+              </div>
+              <span>{amenities}</span>
+            </motion.div>
+            <motion.div 
+              className="font-['Outfit:Light',_'Montserrat'] font-light text-black flex items-center"
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="bg-black/5 rounded-full p-1.5 mr-3">
+                <Users size={16} className="text-black/70" />
+              </div>
+              <span>
+                Sleeps up to{" "}
+                <span className="font-['Outfit:Bold',_'Montserrat'] font-bold">
+                  {sleeps}
+                </span>
+              </span>
+            </motion.div>
+            <motion.div 
+              className="col-span-2 font-['Outfit:Light',_'Montserrat'] font-light text-black flex items-center"
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="bg-black/5 rounded-full p-1.5 mr-3">
+                <Star size={16} className="text-black/70" />
+              </div>
+              <span>
+                LKR{" "}
+                <span className="font-['Outfit:Bold',_'Montserrat'] font-bold text-[24px] mx-1 bg-black/10 px-3 py-1 rounded-xl">
+                  {price}/
+                </span>
+                night
+              </span>
+            </motion.div>
           </div>
         </div>
 
@@ -456,7 +503,7 @@ function RoomsSection({
 
           <RoomCard
             image={imgDsc50122}
-            title="COUPLE WING"
+            title="SERENITY WING"
             description="Intimate and cozy, ideal for couples seeking a peaceful getaway."
             rooms="1"
             beds="1"
@@ -503,23 +550,53 @@ function RoomsSection({
                   </div>
                 </div>
 
-                <div className="space-y-2 mb-6 text-[16px] tracking-[0.64px]">
-                  <div className="font-['Outfit:Light',_'Montserrat'] font-light text-black">
-                    • Full access (all rooms + kitchen)
-                  </div>
-                  <div className="font-['Outfit:Light',_'Montserrat'] font-light text-black">
-                    • Full kitchen, A/C, ironing, washing machine
-                  </div>
-                  <div className="font-['Outfit:Light',_'Montserrat'] font-light text-black">
-                    • Sleeps up to 7
-                  </div>
-                  <div className="font-['Outfit:Light',_'Montserrat'] font-light text-black">
-                    • LKR{" "}
-                    <span className="font-['Outfit:Bold',_'Montserrat'] font-bold">
-                      35,000/
+                <div className="space-y-3 mb-6 text-[16px] tracking-[0.64px]">
+                  <motion.div 
+                    className="font-['Outfit:Light',_'Montserrat'] font-light text-black flex items-center"
+                    whileHover={{ x: 5 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="bg-black/5 rounded-full p-1.5 mr-3">
+                      <HomeIcon size={16} className="text-black/70" />
+                    </div>
+                    <span>Full access (all rooms + kitchen)</span>
+                  </motion.div>
+                  <motion.div 
+                    className="font-['Outfit:Light',_'Montserrat'] font-light text-black flex items-center"
+                    whileHover={{ x: 5 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="bg-black/5 rounded-full p-1.5 mr-3">
+                      <Wind size={16} className="text-black/70" />
+                    </div>
+                    <span>Full kitchen, A/C, ironing, washing machine</span>
+                  </motion.div>
+                  <motion.div 
+                    className="font-['Outfit:Light',_'Montserrat'] font-light text-black flex items-center"
+                    whileHover={{ x: 5 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="bg-black/5 rounded-full p-1.5 mr-3">
+                      <Users size={16} className="text-black/70" />
+                    </div>
+                    <span>Sleeps up to 7</span>
+                  </motion.div>
+                  <motion.div 
+                    className="font-['Outfit:Light',_'Montserrat'] font-light text-black flex items-center"
+                    whileHover={{ x: 5 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="bg-black/5 rounded-full p-1.5 mr-3">
+                      <Star size={16} className="text-black/70" />
+                    </div>
+                    <span>
+                      LKR{" "}
+                      <span className="font-['Outfit:Bold',_'Montserrat'] font-bold text-[24px] mx-1 bg-black/10 px-3 py-1 rounded-xl">
+                        35,000/
+                      </span>
+                      night
                     </span>
-                    night
-                  </div>
+                  </motion.div>
                 </div>
 
                 <div className="text-center">

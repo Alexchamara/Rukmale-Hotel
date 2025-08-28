@@ -10,8 +10,26 @@ import {
   PopoverTrigger,
 } from './ui/popover';
 import { Calendar } from './ui/calendar';
-import { ChevronUp, ChevronDown } from 'lucide-react';
-import { CalendarIcon } from 'lucide-react';
+import { 
+  ChevronUp, 
+  ChevronDown, 
+  CalendarIcon, 
+  BedDouble, 
+  Bath, 
+  Wind, 
+  Shirt, 
+  Warehouse, 
+  Coffee, 
+  Utensils, 
+  RefrigeratorIcon, 
+  MicrowaveIcon, 
+  Users, 
+  PilcrowSquare, 
+  DoorOpen, 
+  Shield, 
+  Check, 
+  Star
+} from 'lucide-react';
 import svgPaths from "../imports/svg-6zn9x4s6db";
 
 const imgMain = "/images/full5.JPG";
@@ -583,18 +601,70 @@ function RoomSection({
                 {description}
               </div>
               
-              <div className="space-y-2 mb-8">
-                {details.map((detail, index) => (
-                  <div key={index} className="font-['Outfit:Regular',_'Montserrat'] text-[#6a6a6a] text-[16px] tracking-[0.64px]">
-                    {detail}
-                  </div>
-                ))}
+              <div className="space-y-3 mb-8">
+                {details.map((detail, index) => {
+                  // Extract the text without the bullet point
+                  const text = detail.replace('• ', '');
+                  
+                  // Determine which icon to use based on the text
+                  let Icon;
+                  if (text.includes('Double bed') || text.includes('Queen bed') || text.includes('Sleep')) {
+                    Icon = BedDouble;
+                  } else if (text.includes('Bathroom')) {
+                    Icon = Bath;
+                  } else if (text.includes('Air conditioning')) {
+                    Icon = Wind;
+                  } else if (text.includes('Iron') || text.includes('Clothing')) {
+                    Icon = Shirt;
+                  } else if (text.includes('storage') || text.includes('table')) {
+                    Icon = Warehouse;
+                  } else if (text.includes('Coffee')) {
+                    Icon = Coffee;
+                  } else if (text.includes('utensils') || text.includes('cookware')) {
+                    Icon = Utensils;
+                  } else if (text.includes('Refrigerator')) {
+                    Icon = RefrigeratorIcon;
+                  } else if (text.includes('Microwave')) {
+                    Icon = MicrowaveIcon;
+                  } else if (text.includes('Guests')) {
+                    Icon = Users;
+                  } else if (text.includes('Room')) {
+                    Icon = DoorOpen;
+                  } else if (text.includes('pillows')) {
+                    Icon = PilcrowSquare;
+                  } else if (text.includes('Cleaning') || text.includes('Hot water')) {
+                    Icon = Shield;
+                  } else {
+                    Icon = Check;
+                  }
+                  
+                  return (
+                    <motion.div 
+                      key={index} 
+                      className="font-['Outfit:Regular',_'Montserrat'] text-[#6a6a6a] text-[16px] tracking-[0.64px] flex items-center"
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="bg-black/5 rounded-full p-1.5 mr-3">
+                        <Icon size={16} className="text-black/70" />
+                      </div>
+                      <span>{text}</span>
+                    </motion.div>
+                  );
+                })}
               </div>
 
               {price && (
-                <div className="font-['Outfit:Regular',_'Montserrat'] text-[#6a6a6a] text-[16px] tracking-[0.64px] mb-8">
-                  • LKR <span className="font-['Outfit:Bold',_'Montserrat'] font-bold">{price}/</span>night
-                </div>
+                <motion.div 
+                  className="font-['Outfit:Regular',_'Montserrat'] text-[#6a6a6a] text-[16px] tracking-[0.64px] mb-8 flex items-center"
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="bg-black/5 rounded-full p-1.5 mr-3">
+                    <Star size={16} className="text-black/70" />
+                  </div>
+                  LKR <span className="font-['Outfit:Bold',_'Montserrat'] font-bold text-[24px] mx-1 bg-black/10 px-3 py-1 rounded-xl text-black">{price}/</span>night
+                </motion.div>
               )}
 
               <motion.button 
@@ -725,7 +795,7 @@ export default function GalleryPage({
     {
       id: 'bedroom01',
       title: 'Bedroom 01',
-      subtitle: '(Couple Wing)',
+      subtitle: '(Serenity Wing)',
       description: 'Intimate and cozy, ideal for couples seeking a peaceful getaway.',
       details: [
         '• Double bed',
@@ -741,7 +811,7 @@ export default function GalleryPage({
         gallery: [imgRectangle31, imgRectangle22, imgRectangle30, imgRectangle33]
       },
       price: '12,000',
-      buttonText: 'Reserve your couple wing'
+      buttonText: 'Reserve your serenity wing'
     },
     {
       id: 'bedroom02',

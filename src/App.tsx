@@ -862,7 +862,7 @@ function RoomsSection({
       <div className="max-w-6xl mx-auto">
         <RoomCard
           images={coupleWingImages}
-          title="COUPLE WING"
+          title="SERENITY WING"
           description="Intimate and cozy, ideal for couples seeking a peaceful getaway."
           rooms="1"
           beds="1"

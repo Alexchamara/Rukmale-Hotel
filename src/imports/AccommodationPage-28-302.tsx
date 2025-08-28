@@ -671,7 +671,7 @@ function Couple() {
       />
       <div className="absolute font-['Outfit:SemiBold',_sans-serif] font-semibold leading-[0] left-[161px] text-[#000000] text-[24px] text-left text-nowrap top-[352px] tracking-[0.96px]">
         <p className="adjustLetterSpacing block leading-[normal] whitespace-pre">
-          COUPLE WING
+          SERENITY WING
         </p>
       </div>
       <div className="absolute font-['Outfit:Regular',_sans-serif] font-normal leading-[0] left-[246.5px] text-[#000000] text-[20px] text-center top-[391px] translate-x-[-50%] w-[437px]">
