@@ -81,7 +81,7 @@ export default function Footer({ onNavigate }: { onNavigate: (page: string, sect
             transition={{ duration: 0.3 }}
             onClick={() => onNavigate('home')}
           />
-          <div className="font-['Outfit:Medium',_sans-serif] font-medium text-black text-[32px] lg:text-[40px]">
+          <div className="font-['Outfit:Medium',_'Montserrat'] font-medium text-black text-[32px] lg:text-[40px]">
             Rukmale Gedara Bungalow
           </div>
         </motion.div>
@@ -118,7 +118,7 @@ export default function Footer({ onNavigate }: { onNavigate: (page: string, sect
                 ].map((item) => (
                   <motion.div 
                     key={item.key}
-                    className="font-['Outfit:Medium',_sans-serif] font-medium text-black text-[24px] lg:text-[28px] tracking-[1.12px] cursor-pointer"
+                    className="font-['Outfit:Medium',_'Montserrat'] font-medium text-black text-[24px] lg:text-[28px] tracking-[1.12px] cursor-pointer"
                     whileHover={{ 
                       scale: 1.05,
                       x: 10,
@@ -139,7 +139,7 @@ export default function Footer({ onNavigate }: { onNavigate: (page: string, sect
                 ].map((item) => (
                   <motion.div 
                     key={item.key}
-                    className="font-['Outfit:Medium',_sans-serif] font-medium text-black text-[24px] lg:text-[28px] tracking-[1.12px] cursor-pointer"
+                    className="font-['Outfit:Medium',_'Montserrat'] font-medium text-black text-[24px] lg:text-[28px] tracking-[1.12px] cursor-pointer"
                     whileHover={{ 
                       scale: 1.05,
                       x: 10,
@@ -158,22 +158,22 @@ export default function Footer({ onNavigate }: { onNavigate: (page: string, sect
           {/* Right Side - Contact Information */}
           <div className="space-y-8 lg:pl-8">
             <div>
-              <div className="font-['Outfit:SemiBold',_sans-serif] font-semibold text-black text-[24px] lg:text-[28px] tracking-[1.12px] mb-2">
+              <div className="font-['Outfit:SemiBold',_'Montserrat'] font-semibold text-black text-[24px] lg:text-[28px] tracking-[1.12px] mb-2">
                 Address
               </div>
-              <div className="font-['Outfit:Regular',_sans-serif] text-black text-[20px] lg:text-[24px] tracking-[0.96px]">
+              <div className="font-['Outfit:Regular',_'Montserrat'] text-black text-[20px] lg:text-[24px] tracking-[0.96px]">
                 2nd lane new city, Kottawa, Sri Lanka
               </div>
             </div>
             
             <div>
-              <div className="font-['Outfit:SemiBold',_sans-serif] font-semibold text-black text-[24px] lg:text-[28px] tracking-[1.12px] mb-2">
+              <div className="font-['Outfit:SemiBold',_'Montserrat'] font-semibold text-black text-[24px] lg:text-[28px] tracking-[1.12px] mb-2">
                 Contact
               </div>
-              <div className="font-['Outfit:Regular',_sans-serif] text-black text-[18px] lg:text-[20px] tracking-[0.8px] mb-2">
+              <div className="font-['Outfit:Regular',_'Montserrat'] text-black text-[18px] lg:text-[20px] tracking-[0.8px] mb-2">
                 +94713456764
               </div>
-              <div className="font-['Outfit:Regular',_sans-serif] text-black text-[20px] lg:text-[24px]">
+              <div className="font-['Outfit:Regular',_'Montserrat'] text-black text-[20px] lg:text-[24px]">
                 reservations@ruhmakegedara.com
               </div>
             </div>

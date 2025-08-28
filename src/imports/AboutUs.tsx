@@ -11,10 +11,10 @@ const imgScreenshot20250522At100232Am1 = "https://via.placeholder.com/500x350/cc
 function In() {
   return (
     <div className="absolute contents left-[66px] top-[30px]" data-name="in">
-      <div className="absolute font-['Cormorant:SemiBold',_sans-serif] font-semibold leading-[0] left-[100px] text-[#000000] text-[20px] text-left text-nowrap top-[30px]">
+      <div className="absolute font-['Cormorant:SemiBold'] font-semibold leading-[0] left-[100px] text-[#000000] text-[20px] text-left text-nowrap top-[30px]">
         <p className="block leading-[normal] whitespace-pre">Check In</p>
       </div>
-      <div className="absolute font-['Outfit:Regular',_sans-serif] font-normal leading-[0] left-[100px] text-[#000000] text-[12px] text-left text-nowrap top-[54px]">
+      <div className="absolute font-['Outfit:Regular'] font-normal leading-[0] left-[100px] text-[#000000] text-[12px] text-left text-nowrap top-[54px]">
         <p className="block leading-[normal] whitespace-pre">2025-03-16</p>
       </div>
       <div
@@ -254,7 +254,7 @@ function Frame1() {
         data-name="2024-10-11-2"
         style={{ backgroundImage: `url('${img202410112}')` }}
       />
-      <div className="[text-shadow:rgba(0,0,0,0.5)_0px_4px_2px] absolute font-['Baskervville_SC:Regular',_sans-serif] leading-[0] left-[178px] not-italic text-[#ffffff] text-[40px] text-left text-nowrap top-[235px] tracking-[6px]">
+      <div className="[text-shadow:rgba(0,0,0,0.5)_0px_4px_2px] absolute font-['Baskervville_SC:Regular'] leading-[0] left-[178px] not-italic text-[#ffffff] text-[40px] text-left text-nowrap top-[235px] tracking-[6px]">
         <p className="adjustLetterSpacing block leading-[normal] whitespace-pre">
           Welcome to Ruhmake Gedara Bungalow
         </p>

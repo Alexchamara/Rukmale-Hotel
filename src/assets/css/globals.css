@@ -243,4 +243,9 @@
 
 html {
   font-size: var(--font-size);
+  font-family: 'Montserrat';
+}
+
+body {
+  font-family: 'Montserrat';
 }

@@ -240,7 +240,7 @@ function HeroSection({
             Experience Nature in Luxury
           </motion.div>
           <motion.div
-            className="font-['Outfit:Light',_sans-serif] font-light text-[6px] lg:text-[8px] tracking-[5.3px] absolute -mt-[65px] ml-[360px]"
+            className="font-['Outfit:Light',_Montserrat] font-light text-[6px] lg:text-[8px] tracking-[5.3px] absolute -mt-[65px] ml-[360px]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.6, ease: "easeOut" }}
@@ -420,10 +420,10 @@ function BookingForm({
                   <CalendarIcon className="size-4" />
                 </div>
                 <div>
-                  <div className="font-['Cormorant:SemiBold',_sans-serif] font-semibold text-black text-[20px]">
+                  <div className="font-['Cormorant:SemiBold',_Montserrat] font-semibold text-black text-[20px]">
                     Check In
                   </div>
-                  <div className="font-['Outfit:Regular',_sans-serif] text-black text-[12px]">
+                  <div className="font-['Outfit:Regular',_Montserrat] text-black text-[12px]">
                     {dateRange.from
                       ? format(dateRange.from, "yyyy-MM-dd")
                       : "Select date"}
@@ -457,10 +457,10 @@ function BookingForm({
                   <CalendarIcon className="size-4" />
                 </div>
                 <div>
-                  <div className="font-['Cormorant:SemiBold',_sans-serif] font-semibold text-black text-[20px]">
+                  <div className="font-['Cormorant:SemiBold',_Montserrat] font-semibold text-black text-[20px]">
                     Check Out
                   </div>
-                  <div className="font-['Outfit:Regular',_sans-serif] text-black text-[12px]">
+                  <div className="font-['Outfit:Regular',_Montserrat] text-black text-[12px]">
                     {dateRange.to
                       ? format(dateRange.to, "yyyy-MM-dd")
                       : "Select date"}
@@ -508,10 +508,10 @@ function BookingForm({
                   </svg>
                 </div>
                 <div>
-                  <div className="font-['Cormorant:SemiBold',_sans-serif] font-semibold text-black text-[20px]">
+                  <div className="font-['Cormorant:SemiBold',_Montserrat] font-semibold text-black text-[20px]">
                     Guest
                   </div>
-                  <div className="font-['Outfit:Regular',_sans-serif] text-black text-[12px]">
+                  <div className="font-['Outfit:Regular',_Montserrat] text-black text-[12px]">
                     {guests} {guests === 1 ? "Guest" : "Guests"}
                   </div>
                 </div>
@@ -519,7 +519,7 @@ function BookingForm({
             </PopoverTrigger>
             <PopoverContent className="w-50" align="start">
               <div className="flex items-center justify-between">
-                <div className="font-['Outfit:Medium',_sans-serif] font-medium text-black pr-2">
+                <div className="font-['Outfit:Medium',_Montserrat] font-medium text-black pr-2">
                   Guests
                 </div>
                 <div className="flex items-center space-x-3">
@@ -532,7 +532,7 @@ function BookingForm({
                   >
                     <ChevronDown className="w-4 h-4" />
                   </motion.button>
-                  <div className="w-8 text-center font-['Outfit:Medium',_sans-serif] font-medium">
+                  <div className="w-8 text-center font-['Outfit:Medium',_Montserrat] font-medium">
                     {guests}
                   </div>
                   <motion.button
@@ -562,7 +562,7 @@ function BookingForm({
               transition={{ duration: 0.2 }}
               onClick={handleCheckAvailability}
             >
-              <div className="font-['Cormorant:Bold',_sans-serif] font-bold text-black text-[20px]">
+              <div className="font-['Cormorant:Bold',_Montserrat] font-bold text-black text-[20px]">
                 Check Availability
               </div>
             </motion.button>
@@ -587,7 +587,7 @@ function IntroSection() {
     >
       <div className="text-center mb-12">
         <motion.div
-          className="font-['Outfit:Regular',_sans-serif] text-black text-[16px] lg:text-[20px] mb-8"
+          className="font-['Outfit:Regular',_Montserrat] text-black text-[16px] lg:text-[20px] mb-8"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -615,7 +615,7 @@ function IntroSection() {
         />
 
         <motion.div
-          className="font-['Outfit:Regular',_sans-serif] text-black text-[16px] lg:text-[20px] max-w-4xl mx-auto leading-normal"
+          className="font-['Outfit:Regular',_Montserrat] text-black text-[16px] lg:text-[20px] max-w-4xl mx-auto leading-normal"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.6 }}
@@ -751,42 +751,42 @@ function RoomCard({
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ duration: 0.6, delay: 0.3 + index * 0.2 }}
       >
-        <div className="font-['Outfit:SemiBold',_sans-serif] font-semibold text-black text-[24px] tracking-[0.96px] mb-4">
+        <div className="font-['Outfit:SemiBold',_Montserrat] font-semibold text-black text-[24px] tracking-[0.96px] mb-4">
           {title}
         </div>
 
-        <div className="font-['Outfit:Light',_sans-serif] font-light text-black text-[16px] tracking-[0.64px] mb-6">
+        <div className="font-['Outfit:Light',_Montserrat] font-light text-black text-[16px] tracking-[0.64px] mb-6">
           {description}
         </div>
 
         <div className="space-y-2 mb-6">
-          <div className="font-['Outfit:Regular',_sans-serif] text-black text-[16px] tracking-[0.64px]">
-            <span className="font-['Outfit:Bold',_sans-serif] font-bold">
+          <div className="font-['Outfit:Regular',_Montserrat] text-black text-[16px] tracking-[0.64px]">
+            <span className="font-['Outfit:Bold',_Montserrat] font-bold">
               {rooms}
             </span>{" "}
             Room{" "}
             {beds && (
               <span>
                 (
-                <span className="font-['Outfit:Bold',_sans-serif] font-bold">
+                <span className="font-['Outfit:Bold',_Montserrat] font-bold">
                   {beds}
                 </span>{" "}
                 double bed)
               </span>
             )}
           </div>
-          <div className="font-['Outfit:Regular',_sans-serif] text-black text-[16px] tracking-[0.64px]">
+          <div className="font-['Outfit:Regular',_Montserrat] text-black text-[16px] tracking-[0.64px]">
             Sleeps up to{" "}
-            <span className="font-['Outfit:Bold',_sans-serif] font-bold">
+            <span className="font-['Outfit:Bold',_Montserrat] font-bold">
               {guests}
             </span>
           </div>
-          <div className="font-['Outfit:Regular',_sans-serif] text-black text-[16px] tracking-[0.64px]">
+          <div className="font-['Outfit:Regular',_Montserrat] text-black text-[16px] tracking-[0.64px]">
             {amenities}
           </div>
         </div>
 
-        <div className="font-['Outfit:Bold',_sans-serif] font-bold text-black text-[16px] tracking-[0.64px] mb-6">
+        <div className="font-['Outfit:Bold',_Montserrat] font-bold text-black text-[16px] tracking-[0.64px] mb-6">
           {price}
         </div>
 
@@ -801,7 +801,7 @@ function RoomCard({
           transition={{ duration: 0.2 }}
           onClick={handleBookingClick}
         >
-          <span className="font-['Outfit:SemiBold',_sans-serif] font-semibold text-black text-[16px] tracking-[0.64px]">
+          <span className="font-['Outfit:SemiBold',_Montserrat] font-semibold text-black text-[16px] tracking-[0.64px]">
             {buttonText}
           </span>
           <motion.div
@@ -850,10 +850,10 @@ function RoomsSection({
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        <div className="font-['Outfit:Bold',_sans-serif] font-bold text-black text-[32px] lg:text-[40px] tracking-[1.6px] mb-4">
+        <div className="font-['Outfit:Bold',_Montserrat] font-bold text-black text-[32px] lg:text-[40px] tracking-[1.6px] mb-4">
           Our Rooms
         </div>
-        <div className="font-['Outfit:Regular',_sans-serif] text-black text-[16px] lg:text-[20px]">
+        <div className="font-['Outfit:Regular',_Montserrat] text-black text-[16px] lg:text-[20px]">
           Discover our selection of inviting accommodations, designed for your
           comfort and relaxation.
         </div>

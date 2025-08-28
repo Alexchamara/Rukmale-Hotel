@@ -110,10 +110,10 @@ function BookingFormSection({ bookingData }: {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="font-['Outfit:Bold',_sans-serif] font-bold text-black text-[32px] lg:text-[40px] tracking-[4px] mb-8">
+          <div className="font-['Outfit:Bold',_'Montserrat'] font-bold text-black text-[32px] lg:text-[40px] tracking-[4px] mb-8">
             BOOK YOUR STAY
           </div>
-          <div className="font-['Outfit:Regular',_sans-serif] text-black text-[20px] max-w-4xl mx-auto mb-8">
+          <div className="font-['Outfit:Regular',_'Montserrat'] text-black text-[20px] max-w-4xl mx-auto mb-8">
             We're delighted you're considering Rukmale Gedara Bungalow for your next getaway. Fill out the form below to request your reservation. We will confirm your booking shortly after receiving your details.
           </div>
         </motion.div>
@@ -128,7 +128,7 @@ function BookingFormSection({ bookingData }: {
         >
           {/* Name Field */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-center">
-            <label className="font-['Outfit:Light',_sans-serif] font-light text-black text-[16px] tracking-[0.64px]">
+            <label className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px]">
               Name:
             </label>
             <div className="lg:col-span-2">
@@ -137,14 +137,14 @@ function BookingFormSection({ bookingData }: {
                 placeholder="Enter your name"
                 value={formData.name}
                 onChange={(e) => handleInputChange('name', e.target.value)}
-                className="w-full h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_sans-serif] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
+                className="w-full h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_'Montserrat'] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
               />
             </div>
           </div>
 
           {/* Phone Field */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-center">
-            <label className="font-['Outfit:Light',_sans-serif] font-light text-black text-[16px] tracking-[0.64px]">
+            <label className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px]">
               Phone:
             </label>
             <div className="lg:col-span-2">
@@ -153,14 +153,14 @@ function BookingFormSection({ bookingData }: {
                 placeholder="Enter your phone number"
                 value={formData.phone}
                 onChange={(e) => handleInputChange('phone', e.target.value)}
-                className="w-full h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_sans-serif] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
+                className="w-full h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_'Montserrat'] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
               />
             </div>
           </div>
 
           {/* Email Field */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-center">
-            <label className="font-['Outfit:Light',_sans-serif] font-light text-black text-[16px] tracking-[0.64px]">
+            <label className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px]">
               Email:
             </label>
             <div className="lg:col-span-2">
@@ -169,14 +169,14 @@ function BookingFormSection({ bookingData }: {
                 placeholder="Enter your email"
                 value={formData.email}
                 onChange={(e) => handleInputChange('email', e.target.value)}
-                className="w-full h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_sans-serif] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
+                className="w-full h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_'Montserrat'] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
               />
             </div>
           </div>
 
           {/* Check-in Date */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-center">
-            <label className="font-['Outfit:Light',_sans-serif] font-light text-black text-[16px] tracking-[0.64px]">
+            <label className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px]">
               Check-in Date:
             </label>
             <div className="lg:col-span-2 relative">
@@ -184,7 +184,7 @@ function BookingFormSection({ bookingData }: {
                 type="date"
                 value={formData.checkIn}
                 onChange={(e) => handleInputChange('checkIn', e.target.value)}
-                className="w-full h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_sans-serif] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
+                className="w-full h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_'Montserrat'] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
               />
               <div className="absolute right-3 top-1.5 pointer-events-none">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 20 20">
@@ -196,7 +196,7 @@ function BookingFormSection({ bookingData }: {
 
           {/* Check-out Date */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-center">
-            <label className="font-['Outfit:Light',_sans-serif] font-light text-black text-[16px] tracking-[0.64px]">
+            <label className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px]">
               Check-out Date:
             </label>
             <div className="lg:col-span-2 relative">
@@ -204,7 +204,7 @@ function BookingFormSection({ bookingData }: {
                 type="date"
                 value={formData.checkOut}
                 onChange={(e) => handleInputChange('checkOut', e.target.value)}
-                className="w-full h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_sans-serif] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
+                className="w-full h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_'Montserrat'] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
               />
               <div className="absolute right-3 top-1.5 pointer-events-none">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 20 20">
@@ -216,7 +216,7 @@ function BookingFormSection({ bookingData }: {
 
           {/* Number of Guests */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-center">
-            <label className="font-['Outfit:Light',_sans-serif] font-light text-black text-[16px] tracking-[0.64px]">
+            <label className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px]">
               Number of Adults:
             </label>
             <div className="lg:col-span-2 flex space-x-8">
@@ -227,11 +227,11 @@ function BookingFormSection({ bookingData }: {
                   placeholder="01"
                   value={formData.adults}
                   onChange={(e) => handleInputChange('adults', e.target.value)}
-                  className="w-[141px] h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_sans-serif] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
+                  className="w-[141px] h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_'Montserrat'] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-['Outfit:Light',_sans-serif] font-light text-black text-[16px] tracking-[0.64px] mb-2">
+                <span className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px] mb-2">
                   Number of Kids:
                 </span>
                 <input
@@ -240,7 +240,7 @@ function BookingFormSection({ bookingData }: {
                   placeholder="00"
                   value={formData.kids}
                   onChange={(e) => handleInputChange('kids', e.target.value)}
-                  className="w-[141px] h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_sans-serif] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
+                  className="w-[141px] h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_'Montserrat'] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
                 />
               </div>
             </div>
@@ -248,14 +248,14 @@ function BookingFormSection({ bookingData }: {
 
           {/* Room Type */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-center">
-            <label className="font-['Outfit:Light',_sans-serif] font-light text-black text-[16px] tracking-[0.64px]">
+            <label className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px]">
               Room Type:
             </label>
             <div className="lg:col-span-2 flex items-center space-x-8">
               <select
                 value={formData.roomType}
                 onChange={(e) => handleInputChange('roomType', e.target.value)}
-                className="w-[137px] h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_sans-serif] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
+                className="w-[137px] h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_'Montserrat'] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
               >
                 <option value="standard">Standard</option>
                 <option value="couple">Couple Wing</option>
@@ -273,7 +273,7 @@ function BookingFormSection({ bookingData }: {
                 />
                 <label 
                   htmlFor="wholeBungalow"
-                  className="font-['Outfit:Light',_sans-serif] font-light text-black text-[16px] tracking-[0.64px]"
+                  className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px]"
                 >
                   Book Whole Bungalow
                 </label>
@@ -283,7 +283,7 @@ function BookingFormSection({ bookingData }: {
 
           {/* Message Field */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-start">
-            <label className="font-['Outfit:Light',_sans-serif] font-light text-black text-[16px] tracking-[0.64px]">
+            <label className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px]">
               Your Message:
             </label>
             <div className="lg:col-span-2">
@@ -292,7 +292,7 @@ function BookingFormSection({ bookingData }: {
                 value={formData.message}
                 onChange={(e) => handleInputChange('message', e.target.value)}
                 rows={4}
-                className="w-full px-3 py-2 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_sans-serif] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70 resize-none"
+                className="w-full px-3 py-2 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_'Montserrat'] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70 resize-none"
               />
             </div>
           </div>
@@ -310,7 +310,7 @@ function BookingFormSection({ bookingData }: {
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="font-['Outfit:Bold',_sans-serif] font-bold text-black text-[14px] tracking-[0.56px]">
+              <div className="font-['Outfit:Bold',_'Montserrat'] font-bold text-black text-[14px] tracking-[0.56px]">
                 Send Reservation Request
               </div>
             </motion.button>
@@ -323,7 +323,7 @@ function BookingFormSection({ bookingData }: {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <div className="font-['Outfit:Medium',_sans-serif] font-medium text-black text-[16px] max-w-4xl mx-auto">
+            <div className="font-['Outfit:Medium',_'Montserrat'] font-medium text-black text-[16px] max-w-4xl mx-auto">
               <p className="mb-2">
                 Upon submission, we'll contact you directly to finalize your booking details.
               </p>

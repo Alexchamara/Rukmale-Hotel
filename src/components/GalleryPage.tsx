@@ -110,183 +110,183 @@ function BookingForm({
 
   return (
     <motion.div
-      ref={ref}
-      className="relative z-20 mx-4 lg:mx-auto max-w-6xl px-4 -mt-12"
-      initial={{ y: 100, opacity: 0 }}
-      animate={isInView ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
-      <motion.div
-        className="bg-white rounded-[50px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] p-6 lg:p-8"
-        whileHover={{
-          boxShadow: "0px 8px 25px rgba(0,0,0,0.15)",
-          y: -5,
-        }}
-        transition={{ duration: 0.3 }}
-      >
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
-          {/* Check In Date Picker */}
-          <Popover open={isCheckInOpen} onOpenChange={setIsCheckInOpen}>
-            <PopoverTrigger asChild>
-              <motion.div
-                className="flex items-center space-x-3 cursor-pointer"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="size-4">
-                  <CalendarIcon className="size-4" />
-                </div>
-                <div>
-                  <div className="font-['Cormorant:SemiBold',_sans-serif] font-semibold text-black text-[20px]">
-                    Check In
-                  </div>
-                  <div className="font-['Outfit:Regular',_sans-serif] text-black text-[12px]">
-                    {dateRange.from
-                      ? format(dateRange.from, "yyyy-MM-dd")
-                      : "Select date"}
-                  </div>
-                </div>
-              </motion.div>
-            </PopoverTrigger>
-            <PopoverContent className="w-auto p-0" align="start">
-              <Calendar
-                mode="single"
-                selected={dateRange.from}
-                onSelect={(date) => {
-                  setDateRange((prev) => ({ ...prev, from: date }));
-                  setIsCheckInOpen(false);
-                }}
-                disabled={(date) => date < new Date()}
-                initialFocus
-              />
-            </PopoverContent>
-          </Popover>
-
-          {/* Check Out Date Picker */}
-          <Popover open={isCheckOutOpen} onOpenChange={setIsCheckOutOpen}>
-            <PopoverTrigger asChild>
-              <motion.div
-                className="flex items-center space-x-3 cursor-pointer"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="size-4">
-                  <CalendarIcon className="size-4" />
-                </div>
-                <div>
-                  <div className="font-['Cormorant:SemiBold',_sans-serif] font-semibold text-black text-[20px]">
-                    Check Out
-                  </div>
-                  <div className="font-['Outfit:Regular',_sans-serif] text-black text-[12px]">
-                    {dateRange.to
-                      ? format(dateRange.to, "yyyy-MM-dd")
-                      : "Select date"}
-                  </div>
-                </div>
-              </motion.div>
-            </PopoverTrigger>
-            <PopoverContent className="w-auto p-0" align="start">
-              <Calendar
-                mode="single"
-                selected={dateRange.to}
-                onSelect={(date) => {
-                  setDateRange((prev) => ({ ...prev, to: date }));
-                  setIsCheckOutOpen(false);
-                }}
-                disabled={(date) => {
-                  const tomorrow = new Date();
-                  tomorrow.setDate(tomorrow.getDate() + 1);
-                  return (
-                    date < tomorrow ||
-                    (dateRange.from ? date <= dateRange.from : false)
-                  );
-                }}
-                initialFocus
-              />
-            </PopoverContent>
-          </Popover>
-
-          {/* Guest Selector */}
-          <Popover open={isGuestOpen} onOpenChange={setIsGuestOpen}>
-            <PopoverTrigger asChild>
-              <motion.div
-                className="flex items-center space-x-3 cursor-pointer"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="size-[25px]">
-                  <svg
-                    className="block size-full"
-                    fill="none"
-                    preserveAspectRatio="none"
-                    viewBox="0 0 25 25"
+          ref={ref}
+          className="relative -mt-[50px] z-20 mx-4 lg:mx-[168px]"
+          initial={{ y: 100, opacity: 0 }}
+          animate={isInView ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <motion.div
+            className="bg-white rounded-[50px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] p-6 lg:p-8"
+            whileHover={{
+              boxShadow: "0px 8px 25px rgba(0,0,0,0.15)",
+              y: -5,
+            }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
+              {/* Check In Date Picker */}
+              <Popover open={isCheckInOpen} onOpenChange={setIsCheckInOpen}>
+                <PopoverTrigger asChild>
+                  <motion.div
+                    className="flex items-center space-x-3 cursor-pointer"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    <path d={svgPaths.p3147b80} fill="black" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="font-['Cormorant:SemiBold',_sans-serif] font-semibold text-black text-[20px]">
-                    Guest
-                  </div>
-                  <div className="font-['Outfit:Regular',_sans-serif] text-black text-[12px]">
-                    {guests} {guests === 1 ? "Guest" : "Guests"}
-                  </div>
-                </div>
-              </motion.div>
-            </PopoverTrigger>
-            <PopoverContent className="w-50" align="start">
-              <div className="flex items-center justify-between">
-                <div className="font-['Outfit:Medium',_sans-serif] font-medium text-black pr-2">
-                  Guests
-                </div>
-                <div className="flex items-center space-x-3">
-                  <motion.button
-                    className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setGuests(Math.max(1, guests - 1))}
-                    disabled={guests <= 1}
+                    <div className="size-4">
+                      <CalendarIcon className="size-4" />
+                    </div>
+                    <div>
+                      <div className="font-['Cormorant:SemiBold',_Montserrat] font-semibold text-black text-[20px]">
+                        Check In
+                      </div>
+                      <div className="font-['Outfit:Regular',_Montserrat] text-black text-[12px]">
+                        {dateRange.from
+                          ? format(dateRange.from, "yyyy-MM-dd")
+                          : "Select date"}
+                      </div>
+                    </div>
+                  </motion.div>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0" align="start">
+                  <Calendar
+                    mode="single"
+                    selected={dateRange.from}
+                    onSelect={(date) => {
+                      setDateRange((prev) => ({ ...prev, from: date }));
+                      setIsCheckInOpen(false);
+                    }}
+                    disabled={(date) => date < new Date()}
+                    initialFocus
+                  />
+                </PopoverContent>
+              </Popover>
+    
+              {/* Check Out Date Picker */}
+              <Popover open={isCheckOutOpen} onOpenChange={setIsCheckOutOpen}>
+                <PopoverTrigger asChild>
+                  <motion.div
+                    className="flex items-center space-x-3 cursor-pointer"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    <ChevronDown className="w-4 h-4" />
-                  </motion.button>
-                  <div className="w-8 text-center font-['Outfit:Medium',_sans-serif] font-medium">
-                    {guests}
-                  </div>
-                  <motion.button
-                    className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setGuests(Math.min(10, guests + 1))}
-                    disabled={guests >= 10}
+                    <div className="size-4">
+                      <CalendarIcon className="size-4" />
+                    </div>
+                    <div>
+                      <div className="font-['Cormorant:SemiBold',_Montserrat] font-semibold text-black text-[20px]">
+                        Check Out
+                      </div>
+                      <div className="font-['Outfit:Regular',_Montserrat] text-black text-[12px]">
+                        {dateRange.to
+                          ? format(dateRange.to, "yyyy-MM-dd")
+                          : "Select date"}
+                      </div>
+                    </div>
+                  </motion.div>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0" align="start">
+                  <Calendar
+                    mode="single"
+                    selected={dateRange.to}
+                    onSelect={(date) => {
+                      setDateRange((prev) => ({ ...prev, to: date }));
+                      setIsCheckOutOpen(false);
+                    }}
+                    disabled={(date) => {
+                      const tomorrow = new Date();
+                      tomorrow.setDate(tomorrow.getDate() + 1);
+                      return (
+                        date < tomorrow ||
+                        (dateRange.from ? date <= dateRange.from : false)
+                      );
+                    }}
+                    initialFocus
+                  />
+                </PopoverContent>
+              </Popover>
+    
+              {/* Guest Selector */}
+              <Popover open={isGuestOpen} onOpenChange={setIsGuestOpen}>
+                <PopoverTrigger asChild>
+                  <motion.div
+                    className="flex items-center space-x-3 cursor-pointer"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    <ChevronUp className="w-4 h-4" />
-                  </motion.button>
-                </div>
+                    <div className="size-[25px]">
+                      <svg
+                        className="block size-full"
+                        fill="none"
+                        preserveAspectRatio="none"
+                        viewBox="0 0 25 25"
+                      >
+                        <path d={svgPaths.p3147b80} fill="black" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="font-['Cormorant:SemiBold',_Montserrat] font-semibold text-black text-[20px]">
+                        Guest
+                      </div>
+                      <div className="font-['Outfit:Regular',_Montserrat] text-black text-[12px]">
+                        {guests} {guests === 1 ? "Guest" : "Guests"}
+                      </div>
+                    </div>
+                  </motion.div>
+                </PopoverTrigger>
+                <PopoverContent className="w-50" align="start">
+                  <div className="flex items-center justify-between">
+                    <div className="font-['Outfit:Medium',_Montserrat] font-medium text-black pr-2">
+                      Guests
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <motion.button
+                        className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => setGuests(Math.max(1, guests - 1))}
+                        disabled={guests <= 1}
+                      >
+                        <ChevronDown className="w-4 h-4" />
+                      </motion.button>
+                      <div className="w-8 text-center font-['Outfit:Medium',_Montserrat] font-medium">
+                        {guests}
+                      </div>
+                      <motion.button
+                        className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => setGuests(Math.min(10, guests + 1))}
+                        disabled={guests >= 10}
+                      >
+                        <ChevronUp className="w-4 h-4" />
+                      </motion.button>
+                    </div>
+                  </div>
+                </PopoverContent>
+              </Popover>
+    
+              {/* Check Availability Button */}
+              <div>
+                <motion.button
+                  className="bg-black/25 h-[53px] rounded-[50px] px-6 w-full"
+                  whileHover={{
+                    scale: 1.05,
+                    backgroundColor: "rgba(0,0,0,0.35)",
+                    boxShadow: "0px 4px 15px rgba(0,0,0,0.2)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                  onClick={handleCheckAvailability}
+                >
+                  <div className="font-['Cormorant:Bold',_Montserrat] font-bold text-black text-[20px]">
+                    Check Availability
+                  </div>
+                </motion.button>
               </div>
-            </PopoverContent>
-          </Popover>
-
-          {/* Check Availability Button */}
-          <div>
-            <motion.button
-              className="bg-black/25 h-[53px] rounded-[50px] px-6 w-full"
-              whileHover={{
-                scale: 1.05,
-                backgroundColor: "rgba(0,0,0,0.35)",
-                boxShadow: "0px 4px 15px rgba(0,0,0,0.2)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.2 }}
-              onClick={handleCheckAvailability}
-            >
-              <div className="font-['Cormorant:Bold',_sans-serif] font-bold text-black text-[20px]">
-                Check Availability
-              </div>
-            </motion.button>
-          </div>
-        </div>
-      </motion.div>
-    </motion.div>
+            </div>
+          </motion.div>
+        </motion.div>
   );
 }
 
@@ -333,7 +333,7 @@ function PhotoTourSection({ targetSection }: { targetSection?: string }) {
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        <div className="font-['Outfit:Bold',_sans-serif] font-bold text-black text-[32px] lg:text-[40px] tracking-[4px] mb-8">
+        <div className="font-['Outfit:Bold',_'Montserrat'] font-bold text-black text-[32px] lg:text-[40px] tracking-[4px] mb-8">
           PHOTO TOUR
         </div>
       </motion.div>
@@ -355,7 +355,7 @@ function PhotoTourSection({ targetSection }: { targetSection?: string }) {
                 style={{ backgroundImage: `url('${category.image}')` }}
                 whileHover={{ boxShadow: "0px 4px 15px rgba(0,0,0,0.2)" }}
               />
-              <div className="font-['Outfit:Regular',_sans-serif] text-black text-[14px] lg:text-[16px] text-center">
+              <div className="font-['Outfit:Regular',_'Montserrat'] text-black text-[14px] lg:text-[16px] text-center">
                 {category.name}
               </div>
             </motion.div>
@@ -571,29 +571,29 @@ function RoomSection({
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="mb-8">
-              <div className="font-['Outfit:Bold',_sans-serif] font-bold text-black text-[22px] tracking-[2.2px] mb-2">
+              <div className="font-['Outfit:Bold',_'Montserrat'] font-bold text-black text-[22px] tracking-[2.2px] mb-2">
                 {title}
                 {subtitle && (
-                  <span className="font-['Outfit:Medium',_sans-serif] font-medium text-[20px] tracking-[0.8px] ml-2">
+                  <span className="font-['Outfit:Medium',_'Montserrat'] font-medium text-[20px] tracking-[0.8px] ml-2">
                     {subtitle}
                   </span>
                 )}
               </div>
-              <div className="font-['Outfit:Regular',_sans-serif] text-[#6a6a6a] text-[16px] mb-6">
+              <div className="font-['Outfit:Regular',_'Montserrat'] text-[#6a6a6a] text-[16px] mb-6">
                 {description}
               </div>
               
               <div className="space-y-2 mb-8">
                 {details.map((detail, index) => (
-                  <div key={index} className="font-['Outfit:Regular',_sans-serif] text-[#6a6a6a] text-[16px] tracking-[0.64px]">
+                  <div key={index} className="font-['Outfit:Regular',_'Montserrat'] text-[#6a6a6a] text-[16px] tracking-[0.64px]">
                     {detail}
                   </div>
                 ))}
               </div>
 
               {price && (
-                <div className="font-['Outfit:Regular',_sans-serif] text-[#6a6a6a] text-[16px] tracking-[0.64px] mb-8">
-                  • LKR <span className="font-['Outfit:Bold',_sans-serif] font-bold">{price}/</span>night
+                <div className="font-['Outfit:Regular',_'Montserrat'] text-[#6a6a6a] text-[16px] tracking-[0.64px] mb-8">
+                  • LKR <span className="font-['Outfit:Bold',_'Montserrat'] font-bold">{price}/</span>night
                 </div>
               )}
 
@@ -608,7 +608,7 @@ function RoomSection({
                 transition={{ duration: 0.2 }}
                 onClick={() => onNavigate('booking')}
               >
-                <div className="font-['Outfit:Bold',_sans-serif] font-bold text-black text-[14px] tracking-[0.56px]">
+                <div className="font-['Outfit:Bold',_'Montserrat'] font-bold text-black text-[14px] tracking-[0.56px]">
                   {buttonText}
                 </div>
               </motion.button>

@@ -124,10 +124,10 @@ function BookingForm({
                   <CalendarIcon className="size-4" />
                 </div>
                 <div>
-                  <div className="font-['Cormorant:SemiBold',_sans-serif] font-semibold text-black text-[20px]">
+                  <div className="font-['Cormorant:SemiBold',_'Montserrat'] font-semibold text-black text-[20px]">
                     Check In
                   </div>
-                  <div className="font-['Outfit:Regular',_sans-serif] text-black text-[12px]">
+                  <div className="font-['Outfit:Regular',_'Montserrat'] text-black text-[12px]">
                     {dateRange.from
                       ? format(dateRange.from, "yyyy-MM-dd")
                       : "Select date"}
@@ -161,10 +161,10 @@ function BookingForm({
                   <CalendarIcon className="size-4" />
                 </div>
                 <div>
-                  <div className="font-['Cormorant:SemiBold',_sans-serif] font-semibold text-black text-[20px]">
+                  <div className="font-['Cormorant:SemiBold',_'Montserrat'] font-semibold text-black text-[20px]">
                     Check Out
                   </div>
-                  <div className="font-['Outfit:Regular',_sans-serif] text-black text-[12px]">
+                  <div className="font-['Outfit:Regular',_'Montserrat'] text-black text-[12px]">
                     {dateRange.to
                       ? format(dateRange.to, "yyyy-MM-dd")
                       : "Select date"}
@@ -212,10 +212,10 @@ function BookingForm({
                   </svg>
                 </div>
                 <div>
-                  <div className="font-['Cormorant:SemiBold',_sans-serif] font-semibold text-black text-[20px]">
+                  <div className="font-['Cormorant:SemiBold',_'Montserrat'] font-semibold text-black text-[20px]">
                     Guest
                   </div>
-                  <div className="font-['Outfit:Regular',_sans-serif] text-black text-[12px]">
+                  <div className="font-['Outfit:Regular',_'Montserrat'] text-black text-[12px]">
                     {guests} {guests === 1 ? "Guest" : "Guests"}
                   </div>
                 </div>
@@ -223,7 +223,7 @@ function BookingForm({
             </PopoverTrigger>
             <PopoverContent className="w-50" align="start">
               <div className="flex items-center justify-between">
-                <div className="font-['Outfit:Medium',_sans-serif] font-medium text-black pr-2">
+                <div className="font-['Outfit:Medium',_'Montserrat'] font-medium text-black pr-2">
                   Guests
                 </div>
                 <div className="flex items-center space-x-3">
@@ -236,7 +236,7 @@ function BookingForm({
                   >
                     <ChevronDown className="w-4 h-4" />
                   </motion.button>
-                  <div className="w-8 text-center font-['Outfit:Medium',_sans-serif] font-medium">
+                  <div className="w-8 text-center font-['Outfit:Medium',_'Montserrat'] font-medium">
                     {guests}
                   </div>
                   <motion.button
@@ -266,7 +266,7 @@ function BookingForm({
               transition={{ duration: 0.2 }}
               onClick={handleCheckAvailability}
             >
-              <div className="font-['Cormorant:Bold',_sans-serif] font-bold text-black text-[20px]">
+              <div className="font-['Cormorant:Bold',_'Montserrat'] font-bold text-black text-[20px]">
                 Check Availability
               </div>
             </motion.button>
@@ -305,7 +305,7 @@ function WelcomeSection() {
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ duration: 0.3 }}
               />
-              <div className="font-['Outfit:Medium',_sans-serif] font-medium text-black text-[32px] lg:text-[40px]">
+              <div className="font-['Outfit:Medium',_'Montserrat'] font-medium text-black text-[32px] lg:text-[40px]">
                 Rukmale Gedara Bungalow
               </div>
             </div>
@@ -319,15 +319,15 @@ function WelcomeSection() {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <div>
-              <div className="font-['Outfit:Bold',_sans-serif] font-bold text-black text-[32px] lg:text-[40px] tracking-[4px] mb-6">
+              <div className="font-['Outfit:Bold',_'Montserrat'] font-bold text-black text-[32px] lg:text-[40px] tracking-[4px] mb-6">
                 WELCOME
               </div>
-              <div className="font-['Outfit:Medium',_sans-serif] font-medium text-black text-[20px] lg:text-[24px] tracking-[0.96px] mb-4">
+              <div className="font-['Outfit:Medium',_'Montserrat'] font-medium text-black text-[20px] lg:text-[24px] tracking-[0.96px] mb-4">
                 About Us
               </div>
             </div>
 
-            <div className="space-y-6 font-['Outfit:Light',_sans-serif] font-light text-black text-[16px] tracking-[0.64px] leading-relaxed">
+            <div className="space-y-6 font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px] leading-relaxed">
               <p>
                 Welcome to Ruhmake Gedara Bungalow, where nature meets luxury to create unforgettable experiences. Situated amidst lush greenery and tranquil surroundings, our bungalow is more than just a place to stay—it's your sanctuary to relax, rejuvenate, and reconnect.
               </p>
@@ -376,10 +376,10 @@ function GetInTouchSection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="font-['Outfit:Bold',_sans-serif] font-bold text-black text-[32px] lg:text-[40px] tracking-[4px] mb-8">
+          <div className="font-['Outfit:Bold',_'Montserrat'] font-bold text-black text-[32px] lg:text-[40px] tracking-[4px] mb-8">
             GET IN TOUCH
           </div>
-          <div className="font-['Outfit:Regular',_sans-serif] text-black text-[16px] lg:text-[20px] max-w-4xl mx-auto">
+          <div className="font-['Outfit:Regular',_'Montserrat'] text-black text-[16px] lg:text-[20px] max-w-4xl mx-auto">
             We'd love to hear from you! Whether you have questions about our accommodations, need assistance with your booking, or simply want to learn more about Ruhmake Gedara Bungalow, we're here to help.
           </div>
         </motion.div>
@@ -393,7 +393,7 @@ function GetInTouchSection() {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <div>
-              <div className="font-['Outfit:SemiBold',_sans-serif] font-semibold text-black text-[20px] lg:text-[24px] tracking-[0.96px] mb-6">
+              <div className="font-['Outfit:SemiBold',_'Montserrat'] font-semibold text-black text-[20px] lg:text-[24px] tracking-[0.96px] mb-6">
                 Contact Us
               </div>
               
@@ -411,7 +411,7 @@ function GetInTouchSection() {
                     </defs>
                   </svg>
                 </div>
-                <div className="font-['Outfit:Light',_sans-serif] font-light text-black text-[16px] tracking-[0.64px]">
+                <div className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px]">
                   +94713456764
                 </div>
               </div>
@@ -430,7 +430,7 @@ function GetInTouchSection() {
                     </defs>
                   </svg>
                 </div>
-                <div className="font-['Outfit:Light',_sans-serif] font-light text-black text-[16px] tracking-[0.64px]">
+                <div className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px]">
                   reservations@ruhmakegedara.com
                 </div>
               </div>
@@ -449,7 +449,7 @@ function GetInTouchSection() {
                     </defs>
                   </svg>
                 </div>
-                <div className="font-['Outfit:Light',_sans-serif] font-light text-black text-[16px] tracking-[0.64px]">
+                <div className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px]">
                   2nd lane new city, Kottawa, Sri Lanka
                 </div>
               </div>
@@ -461,7 +461,7 @@ function GetInTouchSection() {
                     <path d={svgPaths.p366fbf00} fill="black" />
                   </svg>
                 </div>
-                <div className="font-['Outfit:Light',_sans-serif] font-light text-black text-[16px] tracking-[0.64px]">
+                <div className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px]">
                   Available 24/7
                 </div>
               </div>
@@ -469,10 +469,10 @@ function GetInTouchSection() {
 
             {/* Connect with Us */}
             <div>
-              <div className="font-['Outfit:SemiBold',_sans-serif] font-semibold text-black text-[20px] lg:text-[24px] tracking-[0.96px] mb-4">
+              <div className="font-['Outfit:SemiBold',_'Montserrat'] font-semibold text-black text-[20px] lg:text-[24px] tracking-[0.96px] mb-4">
                 Connect with Us
               </div>
-              <div className="font-['Outfit:Light',_sans-serif] font-light text-black text-[16px] tracking-[0.64px] mb-6">
+              <div className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px] mb-6">
                 Follow us on social media to stay updated with the latest news and special offers:
               </div>
               
@@ -550,49 +550,49 @@ function GetInTouchSection() {
           >
             {/* Name Field */}
             <div>
-              <label className="font-['Outfit:Light',_sans-serif] font-light text-black text-[16px] tracking-[0.64px] mb-2 block">
+              <label className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px] mb-2 block">
                 Name:
               </label>
               <input
                 type="text"
                 placeholder="Enter your name"
-                className="w-full h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_sans-serif] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
+                className="w-full h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_'Montserrat'] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
               />
             </div>
 
             {/* Email Field */}
             <div>
-              <label className="font-['Outfit:Light',_sans-serif] font-light text-black text-[16px] tracking-[0.64px] mb-2 block">
+              <label className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px] mb-2 block">
                 Email:
               </label>
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="w-full h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_sans-serif] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
+                className="w-full h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_'Montserrat'] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
               />
             </div>
 
             {/* Phone Field */}
             <div>
-              <label className="font-['Outfit:Light',_sans-serif] font-light text-black text-[16px] tracking-[0.64px] mb-2 block">
+              <label className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px] mb-2 block">
                 Phone (Optional):
               </label>
               <input
                 type="tel"
                 placeholder="Enter your phone number"
-                className="w-full h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_sans-serif] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
+                className="w-full h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_'Montserrat'] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
               />
             </div>
 
             {/* Message Field */}
             <div>
-              <label className="font-['Outfit:Light',_sans-serif] font-light text-black text-[16px] tracking-[0.64px] mb-2 block">
+              <label className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px] mb-2 block">
                 Message:
               </label>
               <textarea
                 placeholder="Enter your message"
                 rows={4}
-                className="w-full px-3 py-2 rounded-[3px] border border-black bg-white font-['Outfit:Light',_sans-serif] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70 resize-none"
+                className="w-full px-3 py-2 rounded-[3px] border border-black bg-white font-['Outfit:Light',_'Montserrat'] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70 resize-none"
               />
             </div>
 
@@ -607,7 +607,7 @@ function GetInTouchSection() {
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="font-['Outfit:Bold',_sans-serif] font-bold text-black text-[14px] tracking-[0.56px]">
+              <div className="font-['Outfit:Bold',_'Montserrat'] font-bold text-black text-[14px] tracking-[0.56px]">
                 Send Message
               </div>
             </motion.button>

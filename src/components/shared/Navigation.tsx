@@ -156,7 +156,7 @@ function MobileMenu({
                 {navigationItems.map((item, index) => (
                   <motion.div
                     key={item.key}
-                    className={`font-['Outfit:SemiBold',_sans-serif] font-semibold text-black text-[24px] tracking-[0.96px] cursor-pointer text-center py-3 px-4 rounded-2xl backdrop-blur-sm ${
+                    className={`font-['Outfit:SemiBold',_'Montserrat'] font-semibold text-black text-[24px] tracking-[0.96px] cursor-pointer text-center py-3 px-4 rounded-2xl backdrop-blur-sm ${
                       currentPage === item.key
                         ? "bg-white/40 border border-black/20 shadow-sm"
                         : "hover:bg-white/25 hover:border hover:border-black/10"
@@ -194,7 +194,7 @@ function MobileMenu({
                   whileTap={{ scale: 0.95 }}
                   onClick={() => handleNavigate("booking")}
                 >
-                  <div className="font-['Outfit:SemiBold',_sans-serif] font-semibold text-black text-[18px] tracking-[0.72px] mr-3">
+                  <div className="font-['Outfit:SemiBold',_'Montserrat'] font-semibold text-black text-[18px] tracking-[0.72px] mr-3">
                     Booking
                   </div>
                   <motion.div
@@ -352,7 +352,7 @@ export default function Navigation({
             ].map((item, index) => (
               <motion.div
                 key={item.key}
-                className={`font-['Outfit:SemiBold',_sans-serif] font-semibold text-white text-[16px] tracking-[0.64px] cursor-pointer transition-all duration-200 ${
+                className={`font-['Outfit:SemiBold',_'Montserrat'] font-semibold text-white text-[16px] tracking-[0.64px] cursor-pointer transition-all duration-200 ${
                   currentPage === item.key ? "opacity-100" : "opacity-80"
                 }`}
                 initial={{ opacity: 0, y: -20 }}
@@ -383,7 +383,7 @@ export default function Navigation({
             ].map((item, index) => (
               <motion.div
                 key={item.key}
-                className={`font-['Outfit:SemiBold',_sans-serif] font-semibold text-white text-[16px] tracking-[0.64px] cursor-pointer transition-all duration-200 ${
+                className={`font-['Outfit:SemiBold',_'Montserrat'] font-semibold text-white text-[16px] tracking-[0.64px] cursor-pointer transition-all duration-200 ${
                   currentPage === item.key ? "opacity-100" : "opacity-80"
                 }`}
                 initial={{ opacity: 0, y: -20 }}
@@ -425,7 +425,7 @@ export default function Navigation({
             whileTap={{ scale: 0.95 }}
             onClick={() => onNavigate("booking")}
           >
-            <div className="font-['Outfit:SemiBold',_sans-serif] font-semibold text-black text-[16px] tracking-[0.64px] mr-2">
+            <div className="font-['Outfit:SemiBold',_'Montserrat'] font-semibold text-black text-[16px] tracking-[0.64px] mr-2">
               Booking
             </div>
             <PlusCircle />

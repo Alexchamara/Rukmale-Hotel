@@ -200,7 +200,7 @@ function ImageModal({ isOpen, onClose, images, initialIndex }: {
 
               {/* Image Counter */}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/40 backdrop-blur-sm text-white px-4 py-2 rounded-full">
-                <span className="font-['Outfit:Medium',_sans-serif]">
+                <span className="font-['Outfit:Medium',_'Montserrat']">
                   {currentIndex + 1} / {images.length}
                 </span>
               </div>
@@ -332,10 +332,10 @@ export default function FeelInspired() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="font-['Outfit:Bold',_sans-serif] font-bold text-black text-[32px] lg:text-[40px] tracking-[1.6px] mb-4">
+          <div className="font-['Outfit:Bold',_'Montserrat'] font-bold text-black text-[32px] lg:text-[40px] tracking-[1.6px] mb-4">
             Feel Inspired
           </div>
-          <div className="font-['Outfit:Regular',_sans-serif] text-black text-[16px] lg:text-[20px]">
+          <div className="font-['Outfit:Regular',_'Montserrat'] text-black text-[16px] lg:text-[20px]">
             Discover the beauty and tranquility of our resort through these captivating moments.
           </div>
         </motion.div>
@@ -404,7 +404,7 @@ export default function FeelInspired() {
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
                     <motion.div
-                      className="opacity-0 group-hover:opacity-100 text-white font-['Outfit:Medium',_sans-serif] bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full"
+                      className="opacity-0 group-hover:opacity-100 text-white font-['Outfit:Medium',_'Montserrat'] bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full"
                       initial={{ scale: 0.8 }}
                       whileHover={{ scale: 1 }}
                     >
