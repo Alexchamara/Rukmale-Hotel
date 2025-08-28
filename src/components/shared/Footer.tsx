@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { SocialIcon } from './Icons';
 import svgPaths from "../../imports/svg-4u3mehqz72";
 import imgLogo1 from "/images/imgLogo1.png";
+import { MapPin, Phone, Mail } from 'lucide-react';
 
 export default function Footer({ onNavigate }: { onNavigate: (page: string, section?: string) => void }) {
   const ref = useRef(null);
@@ -157,24 +158,39 @@ export default function Footer({ onNavigate }: { onNavigate: (page: string, sect
           {/* Right Side - Contact Information */}
           <div className="space-y-6 lg:pl-8">
             <div>
-              <div className="font-['Outfit:SemiBold',_'Montserrat'] font-semibold text-black text-[18px] lg:text-[20px] tracking-[0.8px] mb-1">
+              <div className="font-['Outfit:SemiBold',_'Montserrat'] font-semibold text-black text-[18px] lg:text-[20px] tracking-[0.8px] mb-1 flex items-center">
                 Address
               </div>
-              <div className="font-['Outfit:Regular',_'Montserrat'] text-black text-[16px] lg:text-[18px] tracking-[0.72px]">
+              <a 
+                href="https://www.google.com/maps/place/Rukmale+gedara+Bungalow/@6.8660816,79.9777524,17z/data=!3m1!4b1!4m9!3m8!1s0x3ae25165844e35fb:0x38b9c762179d9546!5m2!4m1!1i2!8m2!3d6.8660816!4d79.9777524!16s%2Fg%2F11scykh613?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="font-['Outfit:Regular',_'Montserrat'] text-black text-[16px] lg:text-[18px] tracking-[0.72px] hover:text-gray-600 transition-colors flex items-center pl-6"
+              >
+                <MapPin className="w-4 h-4 mr-2" />
                 2nd lane new city, Kottawa, Sri Lanka
-              </div>
+              </a>
             </div>
             
             <div>
-              <div className="font-['Outfit:SemiBold',_'Montserrat'] font-semibold text-black text-[18px] lg:text-[20px] tracking-[0.8px] mb-1">
+              <div className="font-['Outfit:SemiBold',_'Montserrat'] font-semibold text-black text-[18px] lg:text-[20px] tracking-[0.8px] mb-1 flex items-center">
+                {/* <Phone className="w-4 h-4 mr-2" /> */}
                 Contact
               </div>
-              <div className="font-['Outfit:Regular',_'Montserrat'] text-black text-[16px] lg:text-[18px] tracking-[0.72px] mb-1">
+              <a 
+                href="tel:+94713456764" 
+                className="font-['Outfit:Regular',_'Montserrat'] text-black text-[16px] lg:text-[18px] tracking-[0.72px] mb-1 hover:text-gray-600 transition-colors flex items-center pl-6"
+              >
+                <Phone className="w-3 h-3 mr-2 opacity-70" />
                 +94713456764
-              </div>
-              <div className="font-['Outfit:Regular',_'Montserrat'] text-black text-[16px] lg:text-[18px]">
-                reservations@ruhmakegedara.com
-              </div>
+              </a>
+              <a 
+                href="mailto:reservations@rukmalegedara.com" 
+                className="font-['Outfit:Regular',_'Montserrat'] text-black text-[16px] lg:text-[18px] hover:text-gray-600 transition-colors flex items-center pl-6"
+              >
+                <Mail className="w-3 h-3 mr-2 opacity-70" />
+                reservations@rukmalegedara.com
+              </a>
             </div>
           </div>
         </motion.div>

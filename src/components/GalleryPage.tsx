@@ -313,13 +313,12 @@ function PhotoTourSection({ targetSection }: { targetSection?: string }) {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const categories = [
-    { id: 'kitchen', name: 'Full kitchen', image: imgRectangle18 },
-    { id: 'dining', name: 'Dining area', image: imgRectangle21 },
+    { id: 'exterior', name: 'Exterior', image: imgRectangle20 },
     { id: 'bedroom01', name: 'Bedroom 01', image: imgRectangle22 },
     { id: 'bedroom02', name: 'Bedroom 02', image: imgRectangle24 },
-    { id: 'bathroom01', name: 'Full bathroom 01', image: imgRectangle23 },
-    { id: 'bathroom02', name: 'Full bathroom 02', image: imgRectangle19 },
-    { id: 'exterior', name: 'Exterior', image: imgRectangle20 }
+    { id: 'bathroom01', name: 'Bathroom', image: imgRectangle23 },
+    { id: 'dining', name: 'Dining area', image: imgRectangle21 },
+    { id: 'kitchen', name: 'Full kitchen', image: imgRectangle18 }
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -757,40 +756,27 @@ export default function GalleryPage({
 
   const roomData = [
     {
-      id: 'kitchen',
-      title: 'Full Kitchen',
-      description: 'A fully equipped kitchen with modern appliances and everything you need for a comfortable stay.',
+      id: 'exterior',
+      title: 'Full Bungalow',
+      subtitle: '(Exterior)',
+      description: 'Book the entire bungalow for ultimate privacy and freedom, perfect for larger groups or families.',
       details: [
-        '• Refrigerator and freezer',
-        '• Microwave and stove',
-        '• Kitchen utensils and cookware',
-        '• Dining table and chairs',
-        '• Coffee maker'
+        '• 2 Rooms',
+        '• 1 Bathroom',
+        '• Full kitchen access',
+        '• Air conditioning',
+        '• Iron',
+        '• Clothing storage',
+        '• Washing machine',
+        '• Extra pillows and blankets',
+        '• Sleep up to 07'
       ],
       images: {
-        main: imgRectangle18,
-        gallery: [imgRectangle39, imgRectangle25]
+        main: imgRectangle41,
+        gallery: [imgRectangle29, imgRectangle35, imgRectangle23]
       },
-      price: '',
-      buttonText: 'Book Full Bungalow'
-    },
-    {
-      id: 'dining',
-      title: 'Dining Area',
-      description: 'A spacious dining area perfect for family meals and gatherings.',
-      details: [
-        '• Large dining table',
-        '• Comfortable seating for 6',
-        '• Natural lighting',
-        '• Adjacent to kitchen',
-        '• Perfect for family meals'
-      ],
-      images: {
-        main: imgRectangle21,
-        gallery: [imgRectangle40, imgRectangle26]
-      },
-      price: '',
-      buttonText: 'Book Full Bungalow'
+      price: '35,000',
+      buttonText: 'Reserve your bungalow'
     },
     {
       id: 'bedroom01',
@@ -838,8 +824,8 @@ export default function GalleryPage({
     },
     {
       id: 'bathroom01',
-      title: 'Full bathroom 01',
-      description: 'A complete bathroom with all modern amenities for your comfort.',
+      title: 'Bathroom',
+      description: 'A modern bathroom with all amenities for your comfort.',
       details: [
         '• Body soap',
         '• Cleaning products',
@@ -857,27 +843,40 @@ export default function GalleryPage({
       buttonText: 'Book Full Bungalow'
     },
     {
-      id: 'exterior',
-      title: 'Full Bungalow',
-      subtitle: '(Exterior)',
-      description: 'Book the entire bungalow for ultimate privacy and freedom, perfect for larger groups or families.',
+      id: 'dining',
+      title: 'Dining Area',
+      description: 'A spacious dining area perfect for family meals and gatherings.',
       details: [
-        '• 2 Rooms',
-        '• 2 Bathrooms',
-        '• Full kitchen access',
-        '• Air conditioning',
-        '• Iron',
-        '• Clothing storage',
-        '• Washing machine',
-        '• Extra pillows and blankets',
-        '• Sleep up to 07'
+        '• Large dining table',
+        '• Comfortable seating for 6',
+        '• Natural lighting',
+        '• Adjacent to kitchen',
+        '• Perfect for family meals'
       ],
       images: {
-        main: imgRectangle41,
-        gallery: [imgRectangle29, imgRectangle35, imgRectangle23]
+        main: imgRectangle21,
+        gallery: [imgRectangle40, imgRectangle26]
       },
-      price: '35,000',
-      buttonText: 'Reserve your bungalow'
+      price: '',
+      buttonText: 'Book Full Bungalow'
+    },
+    {
+      id: 'kitchen',
+      title: 'Full Kitchen',
+      description: 'A fully equipped kitchen with modern appliances and everything you need for a comfortable stay.',
+      details: [
+        '• Refrigerator and freezer',
+        '• Microwave and stove',
+        '• Kitchen utensils and cookware',
+        '• Dining table and chairs',
+        '• Coffee maker'
+      ],
+      images: {
+        main: imgRectangle18,
+        gallery: [imgRectangle39, imgRectangle25]
+      },
+      price: '',
+      buttonText: 'Book Full Bungalow'
     }
   ];
 
