@@ -24,7 +24,7 @@ function HeroSection({ onNavigate, currentPage }: { onNavigate: (page: string, s
   const y = useTransform(scrollY, [0, 500], [0, 150]);
 
   return (
-    <div ref={ref} className="relative h-[852px] w-full shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] overflow-hidden">
+    <div ref={ref} className="relative w-full overflow-hidden shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] h-[420px] sm:h-[520px] md:h-[620px] lg:h-[720px] xl:h-[852px]">
       <motion.div
         className="absolute inset-0 bg-center bg-cover bg-no-repeat"
         style={{ 
@@ -43,7 +43,7 @@ function HeroSection({ onNavigate, currentPage }: { onNavigate: (page: string, s
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
           >
-            Welcome to Ruhmake Gedara Bungalow
+            Welcome to Rukmale Gedara Bungalow
           </motion.div>
         </div>
       </div>
@@ -293,27 +293,24 @@ function WelcomeSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Logo Section */}
           <motion.div 
-            className="flex justify-center lg:justify-start"
+            className="hidden sm:flex justify-center mt-6 lg:mt-8"
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="text-center">
               <motion.div 
-                className="w-[84px] h-[84px] mx-auto mb-4 bg-center bg-cover bg-no-repeat"
+                className="sm:w-[300px] sm:h-[300px] md:w-[340px] md:h-[340px] lg:w-[400px] lg:h-[400px] xl:w-[460px] xl:h-[460px] mx-auto mb-4 bg-center bg-cover bg-no-repeat rounded-[230px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.55)] border border-[rgba(0,0,0,0.25)]"
                 style={{ backgroundImage: `url('${imgLogo1}')` }}
-                whileHover={{ scale: 1.1, rotate: 5 }}
+                // whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ duration: 0.3 }}
               />
-              <div className="font-['Outfit:Medium',_'Montserrat'] font-medium text-black text-[32px] lg:text-[40px]">
-                Rukmale Gedara Bungalow
-              </div>
             </div>
           </motion.div>
 
           {/* Content Section */}
           <motion.div 
-            className="space-y-6"
+            className="space-y-6 text-center lg:text-left max-w-2xl mx-auto lg:mx-0"
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -327,13 +324,13 @@ function WelcomeSection() {
               </div>
             </div>
 
-            <div className="space-y-6 font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px] leading-relaxed">
+            <div className="space-y-6 font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px] leading-relaxed lg:text-justify">
               <p>
-                Welcome to Ruhmake Gedara Bungalow, where nature meets luxury to create unforgettable experiences. Situated amidst lush greenery and tranquil surroundings, our bungalow is more than just a place to stay—it's your sanctuary to relax, rejuvenate, and reconnect.
+                Welcome to Rukmale Gedara Bungalow, where nature meets luxury to create unforgettable experiences. Situated amidst lush greenery and tranquil surroundings, our bungalow is more than just a place to stay—it's your sanctuary to relax, rejuvenate, and reconnect.
               </p>
               
               <p>
-                At Ruhmake Gedara, we pride ourselves on blending traditional hospitality with contemporary comforts. Our beautifully appointed rooms, carefully designed amenities, and warm, attentive service ensure every moment of your stay is special.
+                At Rukmale Gedara, we pride ourselves on blending traditional hospitality with contemporary comforts. Our beautifully appointed rooms, carefully designed amenities, and warm, attentive service ensure every moment of your stay is special.
               </p>
               
               <p>
@@ -341,7 +338,7 @@ function WelcomeSection() {
               </p>
               
               <p>
-                Come, experience the true essence of relaxation and create lasting memories at Ruhmake Gedara Bungalow.
+                Come, experience the true essence of relaxation and create lasting memories at Rukmale Gedara Bungalow.
               </p>
             </div>
           </motion.div>
@@ -380,7 +377,7 @@ function GetInTouchSection() {
             GET IN TOUCH
           </div>
           <div className="font-['Outfit:Regular',_'Montserrat'] text-black text-[16px] lg:text-[20px] max-w-4xl mx-auto">
-            We'd love to hear from you! Whether you have questions about our accommodations, need assistance with your booking, or simply want to learn more about Ruhmake Gedara Bungalow, we're here to help.
+            We'd love to hear from you! Whether you have questions about our accommodations, need assistance with your booking, or simply want to learn more about Rukmale Gedara Bungalow, we're here to help.
           </div>
         </motion.div>
 
@@ -431,7 +428,7 @@ function GetInTouchSection() {
                   </svg>
                 </div>
                 <div className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px]">
-                  reservations@ruhmakegedara.com
+                  reservations@rukmalegedara.com
                 </div>
               </div>
 

@@ -15,7 +15,7 @@ function HeroSection({ onNavigate, currentPage }: { onNavigate: (page: string, s
   const y = useTransform(scrollY, [0, 500], [0, 150]);
 
   return (
-    <div ref={ref} className="relative h-[500px] w-full shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] overflow-hidden">
+    <div ref={ref} className="relative w-full overflow-hidden shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] h-[300px] sm:h-[380px] md:h-[440px] lg:h-[500px]">
       <motion.div
         className="absolute inset-0 bg-center bg-cover bg-no-repeat"
         style={{ 

@@ -61,7 +61,7 @@ export default function Footer({ onNavigate }: { onNavigate: (page: string, sect
   return (
     <motion.div 
       ref={ref}
-      className="relative py-12 lg:py-16 px-4 lg:px-12"
+      className="relative py-8 lg:py-12 px-4 lg:px-10"
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.8 }}
@@ -69,26 +69,26 @@ export default function Footer({ onNavigate }: { onNavigate: (page: string, sect
       <div className="max-w-6xl mx-auto">
         {/* Logo and Title Section */}
         <motion.div 
-          className="text-center mb-10"
+          className="text-center mb-6"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <motion.div 
-            className="w-[70px] h-[70px] mx-auto mb-3 cursor-pointer"
+            className="w-[56px] h-[56px] lg:w-[64px] lg:h-[64px] mx-auto mb-3 cursor-pointer"
             style={{ backgroundImage: `url('${imgLogo1}')`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-            whileHover={{ scale: 1.1, rotate: 5 }}
+            // whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ duration: 0.3 }}
             onClick={() => onNavigate('home')}
           />
-          <div className="font-['Outfit:Medium',_'Montserrat'] font-medium text-black text-[24px] lg:text-[32px]">
+          <div className="font-['Outfit:Medium',_'Montserrat'] font-medium text-black text-[22px] lg:text-[28px]">
             Rukmale Gedara Bungalow
           </div>
         </motion.div>
 
         {/* Separator Lines */}
         <motion.div 
-          className="relative mb-8"
+          className="relative mb-6"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
@@ -97,12 +97,12 @@ export default function Footer({ onNavigate }: { onNavigate: (page: string, sect
           <div className="absolute top-0 left-0 right-0 h-px bg-black/20"></div>
           
           {/* Vertical separator line */}
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-[220px] bg-black/20"></div>
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-[120px] sm:h-[140px] md:h-[180px] lg:h-[200px] bg-black/20"></div>
         </motion.div>
         
         {/* Main Content Section */}
         <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8 pt-8"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 pt-6"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -118,7 +118,7 @@ export default function Footer({ onNavigate }: { onNavigate: (page: string, sect
                 ].map((item) => (
                   <motion.div 
                     key={item.key}
-                    className="font-['Outfit:Medium',_'Montserrat'] font-medium text-black text-[18px] lg:text-[20px] tracking-[0.8px] cursor-pointer"
+                    className="font-['Outfit:Medium',_'Montserrat'] font-medium text-black text-[16px] lg:text-[18px] tracking-[0.8px] cursor-pointer"
                     whileHover={{ 
                       scale: 1.05,
                       x: 10,
@@ -139,7 +139,7 @@ export default function Footer({ onNavigate }: { onNavigate: (page: string, sect
                 ].map((item) => (
                   <motion.div 
                     key={item.key}
-                    className="font-['Outfit:Medium',_'Montserrat'] font-medium text-black text-[18px] lg:text-[20px] tracking-[0.8px] cursor-pointer"
+                    className="font-['Outfit:Medium',_'Montserrat'] font-medium text-black text-[16px] lg:text-[18px] tracking-[0.8px] cursor-pointer"
                     whileHover={{ 
                       scale: 1.05,
                       x: 10,
@@ -158,14 +158,14 @@ export default function Footer({ onNavigate }: { onNavigate: (page: string, sect
           {/* Right Side - Contact Information */}
           <div className="space-y-6 lg:pl-8">
             <div>
-              <div className="font-['Outfit:SemiBold',_'Montserrat'] font-semibold text-black text-[18px] lg:text-[20px] tracking-[0.8px] mb-1 flex items-center">
+              <div className="font-['Outfit:SemiBold',_'Montserrat'] font-semibold text-black text-[16px] lg:text-[18px] tracking-[0.8px] mb-1 flex items-center">
                 Address
               </div>
               <a 
                 href="https://www.google.com/maps/place/Rukmale+gedara+Bungalow/@6.8660816,79.9777524,17z/data=!3m1!4b1!4m9!3m8!1s0x3ae25165844e35fb:0x38b9c762179d9546!5m2!4m1!1i2!8m2!3d6.8660816!4d79.9777524!16s%2Fg%2F11scykh613?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="font-['Outfit:Regular',_'Montserrat'] text-black text-[16px] lg:text-[18px] tracking-[0.72px] hover:text-gray-600 transition-colors flex items-center pl-6"
+                className="font-['Outfit:Regular',_'Montserrat'] text-black text-[14px] lg:text-[16px] tracking-[0.72px] hover:text-gray-600 transition-colors flex items-center pl-6"
               >
                 <MapPin className="w-4 h-4 mr-2" />
                 2nd lane new city, Kottawa, Sri Lanka
@@ -173,22 +173,22 @@ export default function Footer({ onNavigate }: { onNavigate: (page: string, sect
             </div>
             
             <div>
-              <div className="font-['Outfit:SemiBold',_'Montserrat'] font-semibold text-black text-[18px] lg:text-[20px] tracking-[0.8px] mb-1 flex items-center">
+              <div className="font-['Outfit:SemiBold',_'Montserrat'] font-semibold text-black text-[16px] lg:text-[18px] tracking-[0.8px] mb-1 flex items-center">
                 {/* <Phone className="w-4 h-4 mr-2" /> */}
                 Contact
               </div>
               <a 
                 href="tel:+94713456764" 
-                className="font-['Outfit:Regular',_'Montserrat'] text-black text-[16px] lg:text-[18px] tracking-[0.72px] mb-1 hover:text-gray-600 transition-colors flex items-center pl-6"
+                className="font-['Outfit:Regular',_'Montserrat'] text-black text-[14px] lg:text-[16px] tracking-[0.72px] mb-1 hover:text-gray-600 transition-colors flex items-center pl-6"
               >
-                <Phone className="w-3 h-3 mr-2 opacity-70" />
+                <Phone className="w-4 h-4 mr-2 opacity-70" />
                 +94713456764
               </a>
               <a 
                 href="mailto:reservations@rukmalegedara.com" 
-                className="font-['Outfit:Regular',_'Montserrat'] text-black text-[16px] lg:text-[18px] hover:text-gray-600 transition-colors flex items-center pl-6"
+                className="font-['Outfit:Regular',_'Montserrat'] text-black text-[14px] lg:text-[16px] hover:text-gray-600 transition-colors flex items-center pl-6"
               >
-                <Mail className="w-3 h-3 mr-2 opacity-70" />
+                <Mail className="w-4 h-4 mr-2 opacity-70" />
                 reservations@rukmalegedara.com
               </a>
             </div>
@@ -197,7 +197,7 @@ export default function Footer({ onNavigate }: { onNavigate: (page: string, sect
         
         {/* Social Media Icons */}
         <motion.div 
-          className="flex justify-center space-x-6 pt-6"
+          className="flex justify-center space-x-5 pt-4"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.6 }}
@@ -216,6 +216,11 @@ export default function Footer({ onNavigate }: { onNavigate: (page: string, sect
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Bottom Rights Text */}
+        <div className="mt-4 text-center text-[12px] lg:text-[14px] text-black/60">
+          &copy; {new Date().getFullYear()} Rukmale Gedara Bungalow. All Rights Reserved.
+        </div>
       </div>
     </motion.div>
   );

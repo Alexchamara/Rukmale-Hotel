@@ -763,7 +763,7 @@ function Frame2() {
   return (
     <div className="h-[1900px] relative shrink-0 w-[1281px]">
       <div className="absolute font-['Outfit:Regular',_sans-serif] font-normal leading-[0] left-[659.5px] text-[#000000] text-[20px] text-center top-[-190px] translate-x-[-50%] w-[989px]">
-        <p className="block leading-[normal]">{`We’re delighted you're considering Ruhmake Gedara Bungalow for your next getaway. Fill out the form below to request your reservation. We will confirm your booking shortly after receiving your details.`}</p>
+        <p className="block leading-[normal]">{`We’re delighted you're considering Rukmale Gedara Bungalow for your next getaway. Fill out the form below to request your reservation. We will confirm your booking shortly after receiving your details.`}</p>
       </div>
       <div className="absolute font-['Outfit:Medium',_sans-serif] font-medium leading-[normal] left-[639.5px] text-[#000000] text-[16px] text-center top-[520px] translate-x-[-50%] w-[989px]">
         <p className="block mb-0">
@@ -771,7 +771,7 @@ function Frame2() {
           details.
         </p>
         <p className="block">
-          Thank you for choosing Ruhmake Gedara Bungalow. We look forward to
+          Thank you for choosing Rukmale Gedara Bungalow. We look forward to
           welcoming you soon!
         </p>
       </div>

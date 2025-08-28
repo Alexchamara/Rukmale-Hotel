@@ -16,7 +16,15 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "./components/ui/popover";
-import { CalendarIcon, ChevronDown, ChevronUp } from "lucide-react";
+import {
+  CalendarIcon,
+  ChevronDown,
+  ChevronUp,
+  Home,
+  Users,
+  ListChecks,
+  Sparkles,
+} from "lucide-react";
 import { format } from "date-fns";
 
 const imgMain2 = "/images/imgMain2.png";
@@ -28,99 +36,6 @@ const img202410111 = "/images/cup3.JPG";
 const img2024101141 = "/images/family3.JPG";
 const img2024101121 = "/images/family2.JPG";
 const img2024101131 = "/images/full2.JPG";
-
-// function HeroSection({ onNavigate, currentPage }: { onNavigate: (page: string, section?: string) => void, currentPage: string }) {
-//   const ref = useRef(null);
-//   const videoRef = useRef<HTMLVideoElement>(null);
-//   const [isReverse, setIsReverse] = useState(false);
-//   const { scrollY } = useScroll();
-//   const y = useTransform(scrollY, [0, 500], [0, 150]);
-
-//   useEffect(() => {
-//     const video = videoRef.current;
-//     if (!video) return;
-
-//     const handleVideoEnd = () => {
-//       setIsReverse(prev => {
-//         const newReverse = !prev;
-//         if (newReverse) {
-//           // Play in reverse: set currentTime to end and play backwards
-//           video.currentTime = video.duration;
-//           video.playbackRate = -1;
-//         } else {
-//           // Play forward: set currentTime to start and play forwards
-//           video.currentTime = 0;
-//           video.playbackRate = 1;
-//         }
-//         video.play();
-//         return newReverse;
-//       });
-//     };
-
-//     const handleTimeUpdate = () => {
-//       if (isReverse && video.currentTime <= 0) {
-//         handleVideoEnd();
-//       } else if (!isReverse && video.currentTime >= video.duration) {
-//         handleVideoEnd();
-//       }
-//     };
-
-//     video.addEventListener('ended', handleVideoEnd);
-//     video.addEventListener('timeupdate', handleTimeUpdate);
-//     video.addEventListener('loadeddata', () => {
-//       video.play();
-//     });
-
-//     return () => {
-//       video.removeEventListener('ended', handleVideoEnd);
-//       video.removeEventListener('timeupdate', handleTimeUpdate);
-//       video.removeEventListener('loadeddata', () => {
-//         video.play();
-//       });
-//     };
-//   }, [isReverse]);
-
-//   return (
-//     <div ref={ref} className="relative h-[852px] w-full shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] overflow-hidden">
-//       <motion.div
-//         className="absolute inset-0"
-//         style={{ y }}
-//       >
-//         <video
-//           ref={videoRef}
-//           className="absolute inset-0 w-full h-full object-cover"
-//           src="/videos/intoVdo.mp4" // Replace with your video path
-//           muted
-//           playsInline
-//           preload="auto"
-//         />
-//       </motion.div>
-
-//       <Navigation onNavigate={onNavigate} currentPage={currentPage} />
-
-//       <div className="absolute inset-0 flex items-center justify-center">
-//         <div className="text-center text-white">
-//           <motion.div
-//             className="font-['Baskervville_SC:Regular',_sans-serif] text-[28px] lg:text-[40px] tracking-[6px] [text-shadow:rgba(0,0,0,0.5)_0px_4px_2px] mb-2"
-//             initial={{ opacity: 0, y: 50 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
-//           >
-//             Experience Nature in Luxury
-//           </motion.div>
-//           <motion.div
-//             className="font-['Outfit:Light',_sans-serif] font-light text-[6px] lg:text-[8px] tracking-[4.16px]"
-//             initial={{ opacity: 0, y: 30 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.8, delay: 1.6, ease: "easeOut" }}
-//           >
-//             NOTES OF NIRVANA
-//           </motion.div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
 
 function HeroSection({
   onNavigate,
@@ -154,7 +69,7 @@ function HeroSection({
     const handleEnded = () => {
       if (!isReversing) {
         // Finished playing forward, now play in reverse
-        video.playbackRate = -0.5; // Slow motion reverse
+        video.playbackRate = 0.5; // Slow motion reverse
         video.currentTime = video.duration;
         setIsReversing(true);
         video.play().catch(() => setVideoError(true));
@@ -194,7 +109,7 @@ function HeroSection({
   return (
     <div
       ref={ref}
-      className="relative h-[852px] w-full shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] overflow-hidden"
+      className="relative w-full overflow-hidden shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] h-[420px] sm:h-[520px] md:h-[620px] lg:h-[720px] xl:h-[852px]"
     >
       <motion.div className="absolute inset-0" style={{ y }}>
         {!videoError && (
@@ -239,123 +154,19 @@ function HeroSection({
           >
             Experience Nature in Luxury
           </motion.div>
-          <motion.div
-            className="font-['Outfit:Light',_Montserrat] font-light text-[6px] lg:text-[8px] tracking-[5.3px] absolute -mt-[65px] ml-[360px]"
+            <motion.div
+            className="font-['Outfit:Light',_Montserrat] font-light text-[6px] lg:text-[8px] tracking-[5.3px] absolute -mt-[65px] ml-[360px] hidden sm:block"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.6, ease: "easeOut" }}
-          >
+            >
             OTES OF NIRVANA
-          </motion.div>
+            </motion.div>
         </div>
       </div>
     </div>
   );
 }
-
-// function BookingForm({ onNavigate }: { onNavigate: (page: string, section?: string) => void }) {
-//   const ref = useRef(null);
-//   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-//   return (
-//     <motion.div
-//       ref={ref}
-//       className="relative -mt-[50px] z-20 mx-4 lg:mx-[168px]"
-//       initial={{ y: 100, opacity: 0 }}
-//       animate={isInView ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
-//       transition={{ duration: 0.8, ease: "easeOut" }}
-//     >
-//       <motion.div
-//         className="bg-white rounded-[50px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] p-6 lg:p-8"
-//         whileHover={{
-//           boxShadow: "0px 8px 25px rgba(0,0,0,0.15)",
-//           y: -5
-//         }}
-//         transition={{ duration: 0.3 }}
-//       >
-//         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
-//           <motion.div
-//             className="flex items-center space-x-3"
-//             whileHover={{ scale: 1.02 }}
-//             transition={{ duration: 0.2 }}
-//           >
-//             <div className="size-4">
-//               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 15 17">
-//                 <path d={svgPaths.p2b81e400} fill="black" />
-//               </svg>
-//             </div>
-//             <div>
-//               <div className="font-['Cormorant:SemiBold',_sans-serif] font-semibold text-black text-[20px]">
-//                 Check In
-//               </div>
-//               <div className="font-['Outfit:Regular',_sans-serif] text-black text-[12px]">
-//                 2025-03-16
-//               </div>
-//             </div>
-//           </motion.div>
-
-//           <motion.div
-//             className="flex items-center space-x-3"
-//             whileHover={{ scale: 1.02 }}
-//             transition={{ duration: 0.2 }}
-//           >
-//             <div className="size-4">
-//               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 15 17">
-//                 <path d={svgPaths.p2b81e400} fill="black" />
-//               </svg>
-//             </div>
-//             <div>
-//               <div className="font-['Cormorant:SemiBold',_sans-serif] font-semibold text-black text-[20px]">
-//                 Check Out
-//               </div>
-//               <div className="font-['Outfit:Regular',_sans-serif] text-black text-[12px]">
-//                 2025-03-20
-//               </div>
-//             </div>
-//           </motion.div>
-
-//           <motion.div
-//             className="flex items-center space-x-3"
-//             whileHover={{ scale: 1.02 }}
-//             transition={{ duration: 0.2 }}
-//           >
-//             <div className="size-[25px]">
-//               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 25 25">
-//                 <path d={svgPaths.p3147b80} fill="black" />
-//               </svg>
-//             </div>
-//             <div>
-//               <div className="font-['Cormorant:SemiBold',_sans-serif] font-semibold text-black text-[20px]">
-//                 Guest
-//               </div>
-//               <div className="font-['Outfit:Regular',_sans-serif] text-black text-[12px]">
-//                 4 Guests
-//               </div>
-//             </div>
-//           </motion.div>
-
-//           <div>
-//             <motion.button
-//               className="bg-black/25 h-[53px] rounded-[50px] px-6 w-full"
-//               whileHover={{
-//                 scale: 1.05,
-//                 backgroundColor: "rgba(0,0,0,0.35)",
-//                 boxShadow: "0px 4px 15px rgba(0,0,0,0.2)"
-//               }}
-//               whileTap={{ scale: 0.95 }}
-//               transition={{ duration: 0.2 }}
-//               onClick={() => onNavigate('booking')}
-//             >
-//               <div className="font-['Cormorant:Bold',_sans-serif] font-bold text-black text-[20px]">
-//                 Check Availability
-//               </div>
-//             </motion.button>
-//           </div>
-//         </div>
-//       </motion.div>
-//     </motion.div>
-//   );
-// }
 
 function BookingForm({
   onNavigate,
@@ -596,12 +407,9 @@ function IntroSection() {
         </motion.div>
 
         <motion.div
-          className="w-full h-[300px] lg:h-[413px] rounded-[10px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.5)] mb-8 overflow-hidden"
+          className="w-full rounded-[10px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.5)] mb-8 overflow-hidden bg-center bg-cover bg-no-repeat h-[220px] sm:h-[260px] md:h-[300px] lg:h-[413px] xl:h-[480px]"
           style={{
             backgroundImage: `url('${imgIntro1}')`,
-            backgroundPosition: "0.1% 48.19%",
-            backgroundSize: "112.17% 140.19%",
-            backgroundRepeat: "no-repeat",
           }}
           initial={{ opacity: 0, scale: 0.9 }}
           animate={
@@ -717,18 +525,19 @@ function RoomCard({
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const handleBookingClick = () => {
-    // Map room titles to room types for the booking form
-    let roomType;
+    // Map room titles to gallery section ids and navigate to Gallery page
+    // GalleryPage expects ids: 'bedroom01' (serenity wing), 'bedroom02' (family wing), 'exterior' (full bungalow)
+    let sectionId: string | undefined;
     if (title === "FAMILY WING") {
-      roomType = "family";
+      sectionId = "bedroom02";
     } else if (title === "SERENITY WING") {
-      roomType = "couple";
+      sectionId = "bedroom01";
     } else if (title === "FULL BUNGALOW") {
-      roomType = "bungalow";
+      sectionId = "exterior";
     }
-    
-    // Navigate to the booking page with the appropriate room type
-    onNavigate("booking", roomType);
+
+    // Navigate to the gallery page with the appropriate section id
+    onNavigate("gallery", sectionId);
   };
 
   return (
@@ -770,35 +579,55 @@ function RoomCard({
           {description}
         </div>
 
-        <div className="space-y-2 mb-6">
-          <div className="font-['Outfit:Regular',_Montserrat] text-black text-[16px] tracking-[0.64px]">
-            <span className="font-['Outfit:Bold',_Montserrat] font-bold">
-              {rooms}
-            </span>{" "}
-            Room{" "}
-            {beds && (
-              <span>
-                (
-                <span className="font-['Outfit:Bold',_Montserrat] font-bold">
-                  {beds}
-                </span>{" "}
-                double bed)
-              </span>
-            )}
+        {/* Specs with icons */}
+        <div className="space-y-3 mb-6">
+          <div className="flex items-center gap-3 text-black">
+            <Home className="w-5 h-5 text-black/70" />
+            <div className="font-['Outfit:Regular',_Montserrat] text-[16px] tracking-[0.64px]">
+              <span className="font-['Outfit:Bold',_Montserrat] font-bold">{rooms}</span> Room
+              {beds && (
+                <span>
+                  {" "}(
+                  <span className="font-['Outfit:Bold',_Montserrat] font-bold">{beds}</span> double bed)
+                </span>
+              )}
+            </div>
           </div>
-          <div className="font-['Outfit:Regular',_Montserrat] text-black text-[16px] tracking-[0.64px]">
-            Sleeps up to{" "}
-            <span className="font-['Outfit:Bold',_Montserrat] font-bold">
-              {guests}
-            </span>
+          <div className="flex items-center gap-3 text-black">
+            <Users className="w-5 h-5 text-black/70" />
+            <div className="font-['Outfit:Regular',_Montserrat] text-[16px] tracking-[0.64px]">
+              Sleeps up to <span className="font-['Outfit:Bold',_Montserrat] font-bold">{guests}</span>
+            </div>
           </div>
-          <div className="font-['Outfit:Regular',_Montserrat] text-black text-[16px] tracking-[0.64px]">
-            {amenities}
+          <div className="flex items-center gap-3 text-black">
+            <ListChecks className="w-5 h-5 text-black/70" />
+            <div className="font-['Outfit:Regular',_Montserrat] text-[16px] tracking-[0.64px]">
+              {amenities}
+            </div>
           </div>
         </div>
 
-        <div className="font-['Outfit:Bold',_Montserrat] font-bold text-black text-[16px] tracking-[0.64px] mb-6">
-          {price}
+        {/* Highlighted price */}
+        <div className="mb-6">
+          <motion.div
+            className="relative inline-flex items-center gap-2 rounded-full px-[2px] py-[2px] bg-gradient-to-r from-[#F7E3B5] via-[#E8D18F] to-[#D9B96A]"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.15 }}
+          >
+            <div className="inline-flex items-center gap-2 rounded-full px-4 py-2 bg-white/90 text-black shadow-[0_4px_12px_rgba(0,0,0,0.08)]">
+              <Sparkles className="w-4 h-4 text-yellow-700" />
+              <span className="font-['Outfit:Bold',_Montserrat] font-bold text-[18px] lg:text-[20px] tracking-[0.64px]">
+                {price}
+              </span>
+            </div>
+            {/* subtle sheen on hover */}
+            <motion.span
+              className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
+              initial={{ opacity: 0 }}
+              whileHover={{ opacity: 1 }}
+              transition={{ duration: 0.2 }}
+            />
+          </motion.div>
         </div>
 
         <motion.button
@@ -918,24 +747,6 @@ function RoomsSection({
   );
 }
 
-// function LandingPage({
-//   onNavigate,
-//   currentPage,
-// }: {
-//   onNavigate: (page: string, section?: string) => void;
-//   currentPage: string;
-// }) {
-//   return (
-//     <div className="min-h-screen bg-white">
-//       <HeroSection onNavigate={onNavigate} currentPage={currentPage} />
-//       <BookingForm onNavigate={onNavigate} />
-//       <IntroSection />
-//       <RoomsSection onNavigate={onNavigate} />
-//       <FeelInspired />
-//       <Footer onNavigate={onNavigate} />
-//     </div>
-//   );
-// }
 function LandingPage({
   onNavigate,
   currentPage,
@@ -980,18 +791,71 @@ export default function App() {
     guests: 4,
   });
 
-  const handleNavigate = (page: string, section?: string) => {
+  // Helper: apply navigation effects to state (without touching URL)
+  const applyNavigationState = (page: string, section?: string) => {
+    const isMobile =
+      typeof window !== "undefined" &&
+      (window.matchMedia
+        ? window.matchMedia("(max-width: 768px)").matches
+        : window.innerWidth <= 768);
+
     setCurrentPage(page);
-    
-    // If navigating to booking page and section parameter is provided,
-    // use it as the room type
+
     if (page === "booking" && section) {
       setSelectedRoomType(section);
+      setTargetSection(undefined);
     } else {
-      setTargetSection(section);
+      setSelectedRoomType(undefined);
+      setTargetSection(isMobile ? undefined : section);
     }
-    
-    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    if (typeof window !== "undefined") {
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+  };
+
+  // Read current page/section from URL hash
+  const syncFromHash = () => {
+    if (typeof window === "undefined") return;
+    const raw = window.location.hash.startsWith("#")
+      ? window.location.hash.slice(1)
+      : window.location.hash;
+    // Format: page or page?section=...
+    const [path, query] = raw.split("?");
+    const page = (path || "home").trim() || "home";
+    const params = new URLSearchParams(query || "");
+    const section = params.get("section") || undefined;
+
+    // Avoid redundant updates
+    if (page === currentPage) {
+      // still ensure section-derived state consistent
+      applyNavigationState(page, section);
+    } else {
+      applyNavigationState(page, section);
+    }
+  };
+
+  useEffect(() => {
+    // On first mount, initialize state from hash
+    syncFromHash();
+    // Listen for back/forward and manual hash edits
+    window.addEventListener("hashchange", syncFromHash);
+    return () => window.removeEventListener("hashchange", syncFromHash);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleNavigate = (page: string, section?: string) => {
+    // Update URL hash so refresh/back keeps us on the same page
+    if (typeof window !== "undefined") {
+      const nextHash = `${page}${section ? `?section=${encodeURIComponent(section)}` : ""}`;
+      if (window.location.hash.replace(/^#/, "") !== nextHash) {
+        window.location.hash = nextHash;
+      }
+    }
+    // Also apply state immediately for snappy navigation
+    applyNavigationState(page, section);
   };
 
   const handleBookingData = (data: {
