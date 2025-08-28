@@ -717,7 +717,18 @@ function RoomCard({
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const handleBookingClick = () => {
-    onNavigate("booking");
+    // Map room titles to room types for the booking form
+    let roomType;
+    if (title === "FAMILY WING") {
+      roomType = "family";
+    } else if (title === "SERENITY WING") {
+      roomType = "couple";
+    } else if (title === "FULL BUNGALOW") {
+      roomType = "bungalow";
+    }
+    
+    // Navigate to the booking page with the appropriate room type
+    onNavigate("booking", roomType);
   };
 
   return (
@@ -956,6 +967,9 @@ export default function App() {
   const [targetSection, setTargetSection] = useState<string | undefined>(
     undefined
   );
+  const [selectedRoomType, setSelectedRoomType] = useState<string | undefined>(
+    undefined
+  );
   const [bookingData, setBookingData] = useState<{
     checkIn: Date | undefined;
     checkOut: Date | undefined;
@@ -968,7 +982,15 @@ export default function App() {
 
   const handleNavigate = (page: string, section?: string) => {
     setCurrentPage(page);
-    setTargetSection(section);
+    
+    // If navigating to booking page and section parameter is provided,
+    // use it as the room type
+    if (page === "booking" && section) {
+      setSelectedRoomType(section);
+    } else {
+      setTargetSection(section);
+    }
+    
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -1023,6 +1045,7 @@ export default function App() {
             onNavigate={handleNavigate}
             currentPage={currentPage}
             bookingData={bookingData}
+            selectedRoomType={selectedRoomType}
           />
         </div>
       )}

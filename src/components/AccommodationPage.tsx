@@ -312,7 +312,18 @@ function RoomCard({
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const handleBookingClick = () => {
-    onNavigate("booking");
+    // Map room titles to gallery page sections
+    let gallerySection;
+    if (title === "FAMILY WING") {
+      gallerySection = "bedroom02";
+    } else if (title === "SERENITY WING") {
+      gallerySection = "bedroom01";
+    } else if (title === "FULL BUNGALOW") {
+      gallerySection = "exterior";
+    }
+    
+    // Navigate to the gallery page with the appropriate section
+    onNavigate("gallery", gallerySection);
   };
 
   return (
@@ -609,7 +620,7 @@ function RoomsSection({
                     }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    onClick={() => onNavigate("booking")}
+                    onClick={() => onNavigate("gallery", "exterior")}
                   >
                     <div className="font-['Outfit:Bold',_'Montserrat'] font-bold text-black text-[14px] tracking-[0.56px]">
                       Book Now

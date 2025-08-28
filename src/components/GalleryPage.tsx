@@ -675,7 +675,18 @@ function RoomSection({
                 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                onClick={() => onNavigate('booking')}
+                onClick={() => {
+                  // Determine the room type based on the section ID
+                  let roomType = "bungalow";
+                  if (id === "bedroom01") {
+                    roomType = "couple";
+                  } else if (id === "bedroom02") {
+                    roomType = "family";
+                  }
+                  
+                  // Navigate to booking page with room type as a parameter
+                  onNavigate('booking', roomType);
+                }}
               >
                 <div className="font-['Outfit:Bold',_'Montserrat'] font-bold text-black text-[14px] tracking-[0.56px]">
                   {buttonText}

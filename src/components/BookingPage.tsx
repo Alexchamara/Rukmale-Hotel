@@ -40,8 +40,9 @@ function HeroSection({ onNavigate, currentPage }: { onNavigate: (page: string, s
   );
 }
 
-function BookingFormSection({ bookingData }: { 
-  bookingData?: { checkIn: Date | undefined; checkOut: Date | undefined; guests: number } 
+function BookingFormSection({ bookingData, selectedRoomType }: { 
+  bookingData?: { checkIn: Date | undefined; checkOut: Date | undefined; guests: number },
+  selectedRoomType?: string
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -53,16 +54,16 @@ function BookingFormSection({ bookingData }: {
     checkOut: '',
     adults: '1',
     kids: '0',
-    roomType: 'standard',
-    wholeBungalow: false,
+    roomType: 'couple',
     message: ''
   });
 
   // Auto-fill form with booking data from landing page
   useEffect(() => {
+    const updates: Partial<typeof formData> = {};
+    
+    // Update check-in/check-out dates and guests if provided
     if (bookingData) {
-      const updates: Partial<typeof formData> = {};
-      
       if (bookingData.checkIn) {
         updates.checkIn = format(bookingData.checkIn, 'yyyy-MM-dd');
       }
@@ -74,12 +75,17 @@ function BookingFormSection({ bookingData }: {
       if (bookingData.guests) {
         updates.adults = bookingData.guests.toString();
       }
-
-      if (Object.keys(updates).length > 0) {
-        setFormData(prev => ({ ...prev, ...updates }));
-      }
     }
-  }, [bookingData]);
+    
+    // Set room type if provided
+    if (selectedRoomType) {
+      updates.roomType = selectedRoomType;
+    }
+
+    if (Object.keys(updates).length > 0) {
+      setFormData(prev => ({ ...prev, ...updates }));
+    }
+  }, [bookingData, selectedRoomType]);
 
   const handleInputChange = (field: string, value: string | boolean) => {
     setFormData(prev => ({
@@ -217,10 +223,13 @@ function BookingFormSection({ bookingData }: {
           {/* Number of Guests */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-center">
             <label className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px]">
-              Number of Adults:
+              Number of Guests:
             </label>
             <div className="lg:col-span-2 flex space-x-8">
-              <div className="flex flex-col">
+              <div className="flex items-center gap-3">
+                <label className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px]">
+                  Adults:
+                </label>
                 <input
                   type="number"
                   min="1"
@@ -230,10 +239,10 @@ function BookingFormSection({ bookingData }: {
                   className="w-[141px] h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_'Montserrat'] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
                 />
               </div>
-              <div className="flex flex-col">
-                <span className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px] mb-2">
-                  Number of Kids:
-                </span>
+              <div className="flex items-center gap-3">
+                <label className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px]">
+                  Kids:
+                </label>
                 <input
                   type="number"
                   min="0"
@@ -251,33 +260,16 @@ function BookingFormSection({ bookingData }: {
             <label className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px]">
               Room Type:
             </label>
-            <div className="lg:col-span-2 flex items-center space-x-8">
+            <div className="lg:col-span-2">
               <select
                 value={formData.roomType}
                 onChange={(e) => handleInputChange('roomType', e.target.value)}
-                className="w-[137px] h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_'Montserrat'] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
+                className="w-full h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_'Montserrat'] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
               >
-                <option value="standard">Standard</option>
                 <option value="couple">Serenity Wing</option>
                 <option value="family">Family Wing</option>
                 <option value="bungalow">Full Bungalow</option>
               </select>
-              
-              <div className="flex items-center space-x-3">
-                <input
-                  type="checkbox"
-                  id="wholeBungalow"
-                  checked={formData.wholeBungalow}
-                  onChange={(e) => handleInputChange('wholeBungalow', e.target.checked)}
-                  className="w-[33px] h-[33px] rounded-[3px] border-2 border-black"
-                />
-                <label 
-                  htmlFor="wholeBungalow"
-                  className="font-['Outfit:Light',_'Montserrat'] font-light text-black text-[16px] tracking-[0.64px]"
-                >
-                  Book Whole Bungalow
-                </label>
-              </div>
             </div>
           </div>
 
@@ -343,15 +335,16 @@ function BookingFormSection({ bookingData }: {
   );
 }
 
-export default function BookingPage({ onNavigate, currentPage, bookingData }: { 
+export default function BookingPage({ onNavigate, currentPage, bookingData, selectedRoomType }: { 
   onNavigate: (page: string, section?: string) => void; 
   currentPage: string;
   bookingData?: { checkIn: Date | undefined; checkOut: Date | undefined; guests: number };
+  selectedRoomType?: string;
 }) {
   return (
     <div className="min-h-screen bg-white">
       <HeroSection onNavigate={onNavigate} currentPage={currentPage} />
-      <BookingFormSection bookingData={bookingData} />
+      <BookingFormSection bookingData={bookingData} selectedRoomType={selectedRoomType} />
       <FeelInspired />
       <Footer onNavigate={onNavigate} />
     </div>
