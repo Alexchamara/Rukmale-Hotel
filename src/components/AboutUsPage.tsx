@@ -13,6 +13,7 @@ import { Calendar } from './ui/calendar';
 import { ChevronUp, ChevronDown } from 'lucide-react';
 import { CalendarIcon } from 'lucide-react';
 import svgPaths from "../imports/svg-dhbv1x4h7x";
+import emailjs from '@emailjs/browser';
 
 const imgLogo1 = "/images/imgLogo1.png";
 const img202410112 = "/images/full4.JPG";
@@ -356,6 +357,71 @@ function WelcomeSection() {
 function GetInTouchSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  const [sending, setSending] = useState(false);
+  const [statusMsg, setStatusMsg] = useState<{
+    type: 'success' | 'error';
+    text: string;
+  } | null>(null);
+
+  const handleInputChange = (field: keyof typeof formData, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (sending) return;
+
+    const missing: string[] = [];
+    if (!formData.name.trim()) missing.push('Name');
+    if (!formData.email.trim()) missing.push('Email');
+    if (!formData.message.trim()) missing.push('Message');
+    if (missing.length) {
+      setStatusMsg({ type: 'error', text: `Please fill: ${missing.join(', ')}` });
+      return;
+    }
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
+  // Use a dedicated contact template so booking emails and general enquiries are separated
+  const templateId = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID as string | undefined;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setStatusMsg({ type: 'error', text: 'Email service is not configured. Please set VITE_EMAILJS_* env variables.' });
+      return;
+    }
+
+    const templateParams = {
+      to_email: 'ireshm19@gmail.com',
+      subject: 'New enquiry from About page',
+      from_name: formData.name,
+      from_email: formData.email,
+      phone: formData.phone || '-',
+      message: formData.message,
+      submitted_at: new Date().toLocaleString(),
+      form_type: 'contact',
+      summary: `General inquiry from About page\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || '-'}\n\nMessage:\n${formData.message}`,
+    } as Record<string, unknown>;
+
+    try {
+      setSending(true);
+      setStatusMsg(null);
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      setStatusMsg({ type: 'success', text: "Thanks! Your message has been sent. We'll get back to you soon." });
+      // Optional: clear fields
+      setFormData({ name: '', email: '', phone: '', message: '' });
+    } catch (err) {
+      console.error('EmailJS send error:', err);
+      setStatusMsg({ type: 'error', text: 'Failed to send your message. Please try again later or contact us directly.' });
+    } finally {
+      setSending(false);
+    }
+  };
 
   return (
     <motion.div 
@@ -503,8 +569,8 @@ function GetInTouchSection() {
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 25 25">
-                    <path d={svgPaths.p3ef92200} fill="black" />
+                  <svg className="block size-full" fill="black" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
                   </svg>
                 </motion.a>
                 
@@ -529,9 +595,8 @@ function GetInTouchSection() {
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <svg className="block size-full" fill="black" viewBox="0 0 24 24">
-                    <path d="M12 0C7.582 0 4 3.582 4 8c0 5.25 8 16 8 16s8-10.75 8-16c0-4.418-3.582-8-8-8zm0 11.5c-1.933 0-3.5-1.567-3.5-3.5S10.067 4.5 12 4.5s3.5 1.567 3.5 3.5-1.567 3.5-3.5 3.5z"/>
-                    <circle cx="12" cy="8" r="2"/>
+                  <svg className="block size-full" fill="none" stroke="black" strokeWidth="3" viewBox="0 0 32 32">
+                    <path d="M29.524 22.279c-0.372-1.044-0.752-1.907-1.183-2.74l0.058 0.123v-0.038c-2.361-5.006-4.551-9.507-6.632-13.551l-0.139-0.204c-1.483-3.040-2.544-4.866-5.627-4.866-3.049 0-4.344 2.118-5.667 4.871l-0.101 0.2c-2.086 4.044-4.275 8.551-6.627 13.555v0.066l-0.699 1.525c-0.262 0.63-0.396 0.96-0.431 1.058-0.279 0.691-0.441 1.492-0.441 2.332 0 3.526 2.859 6.385 6.385 6.385 0.020 0 0.040-0 0.060-0l-0.003 0c0.117-0 0.232-0.012 0.342-0.036l-0.011 0.002h0.465c2.744-0.574 5.073-2.061 6.71-4.121l0.018-0.024c1.656 2.082 3.983 3.568 6.65 4.132l0.075 0.013h0.465c0.099 0.021 0.214 0.034 0.331 0.034h0c0.017 0 0.038 0 0.059 0 3.526 0 6.384-2.858 6.384-6.384 0-0.84-0.162-1.642-0.457-2.376l0.015 0.043zM16.001 23.841c-1.367-1.544-2.407-3.411-2.991-5.47l-0.024-0.099c-0.126-0.348-0.198-0.749-0.198-1.167 0-0.711 0.21-1.372 0.57-1.927l-0.008 0.014c0.543-0.803 1.45-1.325 2.479-1.325 0.060 0 0.12 0.002 0.18 0.005l-0.008-0c0.052-0.003 0.112-0.005 0.173-0.005 1.030 0 1.938 0.525 2.469 1.323l0.007 0.011c0.351 0.538 0.56 1.196 0.56 1.904 0 0.422-0.074 0.826-0.211 1.201l0.008-0.024c-0.624 2.155-1.661 4.019-3.029 5.588l0.015-0.017z"></path>
                   </svg>
                 </motion.a>
               </div>
@@ -539,7 +604,8 @@ function GetInTouchSection() {
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div 
+          <motion.form
+            onSubmit={handleSubmit}
             className="space-y-6"
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
@@ -553,6 +619,8 @@ function GetInTouchSection() {
               <input
                 type="text"
                 placeholder="Enter your name"
+                value={formData.name}
+                onChange={(e) => handleInputChange('name', e.target.value)}
                 className="w-full h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_'Montserrat'] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
               />
             </div>
@@ -565,6 +633,8 @@ function GetInTouchSection() {
               <input
                 type="email"
                 placeholder="Enter your email"
+                value={formData.email}
+                onChange={(e) => handleInputChange('email', e.target.value)}
                 className="w-full h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_'Montserrat'] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
               />
             </div>
@@ -577,6 +647,8 @@ function GetInTouchSection() {
               <input
                 type="tel"
                 placeholder="Enter your phone number"
+                value={formData.phone}
+                onChange={(e) => handleInputChange('phone', e.target.value)}
                 className="w-full h-[33px] px-3 rounded-[3px] border-b border-black bg-white font-['Outfit:Light',_'Montserrat'] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70"
               />
             </div>
@@ -589,13 +661,18 @@ function GetInTouchSection() {
               <textarea
                 placeholder="Enter your message"
                 rows={4}
+                value={formData.message}
+                onChange={(e) => handleInputChange('message', e.target.value)}
                 className="w-full px-3 py-2 rounded-[3px] border border-black bg-white font-['Outfit:Light',_'Montserrat'] font-light text-[14px] text-gray-500 tracking-[0.56px] focus:outline-none focus:border-black/70 resize-none"
               />
             </div>
 
             {/* Send Button */}
             <motion.button 
-              className="bg-black/25 h-[33px] rounded-[10px] px-6 shadow-[0px_0px_10px_0px_#000000]"
+              type="submit"
+              disabled={sending}
+              aria-busy={sending}
+              className={`bg-black/25 h-[33px] rounded-[10px] px-6 shadow-[0px_0px_10px_0px_#000000] ${sending ? 'opacity-60 cursor-not-allowed' : ''}`}
               whileHover={{ 
                 scale: 1.05,
                 backgroundColor: "rgba(0,0,0,0.35)",
@@ -605,10 +682,15 @@ function GetInTouchSection() {
               transition={{ duration: 0.2 }}
             >
               <div className="font-['Outfit:Bold',_'Montserrat'] font-bold text-black text-[14px] tracking-[0.56px]">
-                Send Message
+                {sending ? 'Sending…' : 'Send Message'}
               </div>
             </motion.button>
-          </motion.div>
+            {statusMsg && (
+              <div className={`text-sm ${statusMsg.type === 'success' ? 'text-green-600' : 'text-red-600'}`}>
+                {statusMsg.text}
+              </div>
+            )}
+          </motion.form>
         </div>
 
         {/* Map Section */}

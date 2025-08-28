@@ -82,6 +82,38 @@ Lint the codebase:
 npm run lint
 ```
 
+### EmailJS configuration
+
+This app can send emails via EmailJS for two flows:
+
+- Booking requests (on `BookingPage`)
+- Contact enquiries (on About page "Get in Touch")
+
+Setup steps:
+
+1) Create an EmailJS account and a service (e.g., Gmail or SMTP)
+2) Create two templates in EmailJS:
+	- Reservation template (for bookings)
+	- Contact template (for general enquiries)
+3) In each template, add these variables to the email body as needed:
+
+Reservation (minimum):
+- `from_name`, `from_email`, `phone`, `check_in`, `check_out`, `adults`, `kids`, `room_type`, `message`, `summary`
+
+Contact (minimum):
+- `from_name`, `from_email`, `phone`, `message`, `subject`, `submitted_at`, `form_type`, `summary`, `to_email`
+
+4) Copy `.env.example` to `.env.local` and fill the values:
+
+```
+VITE_EMAILJS_SERVICE_ID=...
+VITE_EMAILJS_PUBLIC_KEY=...
+VITE_EMAILJS_TEMPLATE_ID=...                 # reservation template ID
+VITE_EMAILJS_CONTACT_TEMPLATE_ID=...         # contact template ID
+```
+
+5) Restart the dev server after changes to env vars.
+
 ## Navigation and Refresh Behavior (Hash-based)
 
 This app preserves the current page on refresh by syncing navigation to the URL hash.
