@@ -10,4 +10,9 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    // Increase chunk size warning limit (in kB) to suppress Vercel warning.
+    // Adjust as needed; default is 500 kB. Here we set it to 1500 kB (1.5 MB).
+    chunkSizeWarningLimit: 1500,
+  },
 })
