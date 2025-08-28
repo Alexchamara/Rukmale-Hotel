@@ -793,12 +793,6 @@ export default function App() {
 
   // Helper: apply navigation effects to state (without touching URL)
   const applyNavigationState = (page: string, section?: string) => {
-    const isMobile =
-      typeof window !== "undefined" &&
-      (window.matchMedia
-        ? window.matchMedia("(max-width: 768px)").matches
-        : window.innerWidth <= 768);
-
     setCurrentPage(page);
 
     if (page === "booking" && section) {
@@ -806,7 +800,9 @@ export default function App() {
       setTargetSection(undefined);
     } else {
       setSelectedRoomType(undefined);
-      setTargetSection(isMobile ? undefined : section);
+      // Always set targetSection so that mobile devices also navigate to the related section
+      // (previously this was disabled on mobile via an isMobile check)
+      setTargetSection(section);
     }
 
     if (typeof window !== "undefined") {
