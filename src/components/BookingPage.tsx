@@ -6,6 +6,7 @@ import Navigation from './shared/Navigation';
 import Footer from './shared/Footer';
 import FeelInspired from './shared/FeelInspired';
 import { Calendar } from './ui/calendar';
+import emailjs from '@emailjs/browser';
 import imgDsc05036 from "../assets/cup4.jpg";
 
 function HeroSection({ onNavigate, currentPage }: { onNavigate: (page: string, section?: string) => void, currentPage: string }) {
@@ -69,6 +70,9 @@ function BookingFormSection({ bookingData, selectedRoomType }: {
   const [editingField, setEditingField] = useState<"checkIn" | "checkOut" | null>(null);
   // Control calendar visibility
   const [showCalendar, setShowCalendar] = useState<boolean>(false);
+  // Email sending state & status
+  const [sending, setSending] = useState<boolean>(false);
+  const [statusMsg, setStatusMsg] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
   // Auto-fill form with booking data from landing page
   useEffect(() => {
@@ -129,10 +133,58 @@ function BookingFormSection({ bookingData, selectedRoomType }: {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    if (sending) return;
+
+    // Basic validation
+    const missing: string[] = [];
+    if (!formData.name.trim()) missing.push('Name');
+    if (!formData.email.trim()) missing.push('Email');
+    if (!formData.checkIn) missing.push('Check-in');
+    if (!formData.checkOut) missing.push('Check-out');
+    if (missing.length) {
+      setStatusMsg({ type: 'error', text: `Please fill: ${missing.join(', ')}` });
+      return;
+    }
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setStatusMsg({ type: 'error', text: 'Email service is not configured. Please set VITE_EMAILJS_* env variables.' });
+      return;
+    }
+
+    const templateParams = {
+      to_email: 'ireshm19@gmail.com',
+      from_name: formData.name,
+      from_email: formData.email,
+      phone: formData.phone || '-',
+      check_in: formData.checkIn,
+      check_out: formData.checkOut,
+      adults: formData.adults,
+      kids: formData.kids,
+      room_type: formData.roomType,
+      message: formData.message || '-',
+      // Optional: include a combined summary
+      summary: `${formData.name} (${formData.email})\nPhone: ${formData.phone || '-'}\nDates: ${formData.checkIn} → ${formData.checkOut}\nGuests: ${formData.adults} adults, ${formData.kids} kids\nRoom: ${formData.roomType}`,
+    } as Record<string, unknown>;
+
+    try {
+      setSending(true);
+      setStatusMsg(null);
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      setStatusMsg({ type: 'success', text: "Your reservation request has been sent. We'll get back to you soon." });
+      // Optionally reset form fields (keep dates if you prefer)
+      // setFormData(prev => ({ ...prev, name: '', phone: '', email: '', message: '' }));
+    } catch (err) {
+      console.error('EmailJS send error:', err);
+      setStatusMsg({ type: 'error', text: 'Failed to send your request. Please try again later or contact us directly.' });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -428,7 +480,9 @@ function BookingFormSection({ bookingData, selectedRoomType }: {
           <div className="text-center pt-8">
             <motion.button 
               type="submit"
-              className="bg-black/25 h-[33px] rounded-[10px] px-12 shadow-[0px_0px_10px_0px_#000000]"
+              disabled={sending}
+              aria-busy={sending}
+              className={`bg-black/25 h-[33px] rounded-[10px] px-12 shadow-[0px_0px_10px_0px_#000000] ${sending ? 'opacity-60 cursor-not-allowed' : ''}`}
               whileHover={{ 
                 scale: 1.05,
                 backgroundColor: "rgba(0,0,0,0.35)",
@@ -438,9 +492,14 @@ function BookingFormSection({ bookingData, selectedRoomType }: {
               transition={{ duration: 0.2 }}
             >
               <div className="font-['Outfit:Bold',_'Montserrat'] font-bold text-black text-[14px] tracking-[0.56px]">
-                Send Reservation Request
+                {sending ? 'Sending…' : 'Send Reservation Request'}
               </div>
             </motion.button>
+            {statusMsg && (
+              <div className={`mt-3 text-sm ${statusMsg.type === 'success' ? 'text-green-600' : 'text-red-600'}`}>
+                {statusMsg.text}
+              </div>
+            )}
           </div>
 
           {/* Footer Note */}
